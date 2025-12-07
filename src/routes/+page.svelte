@@ -257,7 +257,7 @@
 			From compact workhorses to industrial titans.
 		</p>
 		<div class="hero-cta">
-			<a href="#m5" class="btn-primary">Explore Products</a>
+			<a href="#f30" class="btn-primary">Explore Products</a>
 			<a href="#compare" class="btn-secondary">Compare Models</a>
 		</div>
 	</div>

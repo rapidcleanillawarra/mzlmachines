@@ -4,8 +4,8 @@
 	import favicon from '$lib/assets/favicon.svg';
 
 	const productLinks = [
-		{ href: '/#m5', label: 'M5' },
 		{ href: '/#f30', label: 'F30' },
+		{ href: '/#m5', label: 'M5' },
 		{ href: '/#f60', label: 'F60' },
 		{ href: '/#m80', label: 'M80' },
 		{ href: '/#compare', label: 'Compare' },
@@ -21,7 +21,7 @@
 			scrolled = window.scrollY > 50;
 			
 			// Update active section based on scroll position
-			const sections = ['m5', 'f30', 'f60', 'm80', 'compare'];
+			const sections = ['f30', 'm5', 'f60', 'm80', 'compare'];
 			for (const section of sections) {
 				const el = document.getElementById(section);
 				if (el) {
@@ -92,8 +92,8 @@
 			<div class="footer-grid">
 				<div class="footer-col">
 					<h4>Products</h4>
-					<a href="/#m5">M5 Series</a>
 					<a href="/#f30">F30 Series</a>
+					<a href="/#m5">M5 Series</a>
 					<a href="/#f60">F60 Series</a>
 					<a href="/#m80">M80 Series</a>
 				</div>
