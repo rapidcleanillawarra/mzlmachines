@@ -4,7 +4,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 
 	const productLinks = [
-		{ href: '/#f30', label: 'F30' },
+		{ href: '/f30', label: 'F30' },
 		{ href: '/#m5', label: 'M5' },
 		{ href: '/#f60', label: 'F60' },
 		{ href: '/#m80', label: 'M80' },
@@ -92,7 +92,7 @@
 			<div class="footer-grid">
 				<div class="footer-col">
 					<h4>Products</h4>
-					<a href="/#f30">F30 Series</a>
+					<a href="/f30">F30 Series</a>
 					<a href="/#m5">M5 Series</a>
 					<a href="/#f60">F60 Series</a>
 					<a href="/#m80">M80 Series</a>
