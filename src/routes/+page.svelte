@@ -7,6 +7,29 @@
 
 	const products = [
 		{
+			id: 'f30',
+			name: 'F30',
+			tagline: 'Precision Control',
+			description: 'Ergonomic handlebar system with intuitive controls. Maneuverability meets power.',
+			size: '43cm',
+			image: 'https://www.rapidsupplies.com.au/assets/images/mzl_f30.png',
+			gallery: [
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-1.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-2.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-3.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-4.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-5.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-6.png'
+			],
+			specs: {
+				'Cleaning Width': '43 cm',
+				'Tank Capacity': '35L Clean / 40L Recovery',
+				'Runtime': 'Up to 2.5 hours',
+				'Coverage': '1,700 m²/hr'
+			},
+			color: '#22d3ee'
+		},
+		{
 			id: 'm5',
 			name: 'M5',
 			tagline: 'Compact Powerhouse',
@@ -29,29 +52,6 @@
 				'Coverage': '2,000 m²/hr'
 			},
 			color: '#2dd4bf'
-		},
-		{
-			id: 'f30',
-			name: 'F30',
-			tagline: 'Precision Control',
-			description: 'Ergonomic handlebar system with intuitive controls. Maneuverability meets power.',
-			size: '43cm',
-			image: 'https://www.rapidsupplies.com.au/assets/images/mzl_f30.png',
-			gallery: [
-				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-1.png',
-				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-2.png',
-				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-3.png',
-				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-4.png',
-				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-5.png',
-				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-6.png'
-			],
-			specs: {
-				'Cleaning Width': '43 cm',
-				'Tank Capacity': '35L Clean / 40L Recovery',
-				'Runtime': 'Up to 2.5 hours',
-				'Coverage': '1,700 m²/hr'
-			},
-			color: '#22d3ee'
 		},
 		{
 			id: 'f60',
@@ -104,12 +104,12 @@
 	];
 
 	const comparisonSpecs = [
-		{ label: 'Cleaning Width', m5: '51 cm', f30: '43 cm', f60: '51 cm', m80: '66 cm' },
-		{ label: 'Clean Tank', m5: '40L', f30: '35L', f60: '55L', m80: '80L' },
-		{ label: 'Recovery Tank', m5: '45L', f30: '40L', f60: '60L', m80: '90L' },
-		{ label: 'Runtime', m5: '3 hrs', f30: '2.5 hrs', f60: '4 hrs', m80: '5 hrs' },
-		{ label: 'Coverage', m5: '2,000 m²/hr', f30: '1,700 m²/hr', f60: '2,500 m²/hr', m80: '4,000 m²/hr' },
-		{ label: 'Best For', m5: 'Small-Medium', f30: 'Tight Spaces', f60: 'Commercial', m80: 'Industrial' }
+		{ label: 'Cleaning Width', f30: '43 cm', m5: '51 cm', f60: '51 cm', m80: '66 cm' },
+		{ label: 'Clean Tank', f30: '35L', m5: '40L', f60: '55L', m80: '80L' },
+		{ label: 'Recovery Tank', f30: '40L', m5: '45L', f60: '60L', m80: '90L' },
+		{ label: 'Runtime', f30: '2.5 hrs', m5: '3 hrs', f60: '4 hrs', m80: '5 hrs' },
+		{ label: 'Coverage', f30: '1,700 m²/hr', m5: '2,000 m²/hr', f60: '2,500 m²/hr', m80: '4,000 m²/hr' },
+		{ label: 'Best For', f30: 'Tight Spaces', m5: 'Small-Medium', f60: 'Commercial', m80: 'Industrial' }
 	];
 
 	onMount(() => {
