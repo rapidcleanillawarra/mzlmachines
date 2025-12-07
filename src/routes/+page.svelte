@@ -12,8 +12,16 @@
 			tagline: 'Compact Powerhouse',
 			description: 'Entry-level excellence. Perfect for small to medium spaces with uncompromising cleaning performance.',
 			size: '51cm',
-			image: '/m5/m5-w-b-51cm.png',
-			gallery: ['/m5/m5-w-b-51cm-1.png', '/m5/m5-w-b-51cm-2.png', '/m5/m5-w-b-51cm-3.png'],
+			image: 'https://www.rapidsupplies.com.au/assets/images/mzl_m5.png',
+			gallery: [
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m5-1.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m5-2.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m5-3.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m5-4.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m5-5.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m5-6.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m5-7.png'
+			],
 			specs: {
 				'Cleaning Width': '51 cm',
 				'Tank Capacity': '40L Clean / 45L Recovery',
@@ -28,8 +36,15 @@
 			tagline: 'Precision Control',
 			description: 'Ergonomic handlebar system with intuitive controls. Maneuverability meets power.',
 			size: '43cm',
-			image: '/f30/f30-w-b-43cm.png',
-			gallery: ['/f30/f30-w-b-43cm-1.png', '/f30/f30-w-b-43cm-2.png', '/f30/f30-w-b-43cm-3.png'],
+			image: 'https://www.rapidsupplies.com.au/assets/images/mzl_f30.png',
+			gallery: [
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-1.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-2.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-3.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-4.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-5.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f30-6.png'
+			],
 			specs: {
 				'Cleaning Width': '43 cm',
 				'Tank Capacity': '35L Clean / 40L Recovery',
@@ -44,8 +59,19 @@
 			tagline: 'Professional Grade',
 			description: 'Built for demanding environments. Industrial reliability with commercial efficiency.',
 			size: '51cm',
-			image: '/f60/f60-a-w-bt-51cm.png',
-			gallery: ['/f60/f60-a-w-bt-51cm-1.png', '/f60/f60-a-w-bt-51cm-2.png', '/f60/f60-a-w-bt-51cm-3.png'],
+			image: 'https://www.rapidsupplies.com.au/assets/images/mzl_f60.png',
+			gallery: [
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f60-1.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f60-2.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f60-3.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f60-4.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f60-5.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f60-6.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f60-7.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f60-8.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f60-9.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_f60-10.png'
+			],
 			specs: {
 				'Cleaning Width': '51 cm',
 				'Tank Capacity': '55L Clean / 60L Recovery',
@@ -60,8 +86,13 @@
 			tagline: 'Industrial Titan',
 			description: 'Our flagship machine. Maximum coverage, maximum power, maximum results.',
 			size: '66cm',
-			image: '/m80/m80-a-r-o-66cm.png',
-			gallery: ['/m80/m80-a-r-o-66cm-1.png', '/m80/m80-a-r-o-66cm-4.png'],
+			image: 'https://www.rapidsupplies.com.au/assets/images/mzl_m80.jpg',
+			gallery: [
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m80-1.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m80-2.jpg',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m80-4.png',
+				'https://www.rapidsupplies.com.au/assets/images/mzl_m80-5.png'
+			],
 			specs: {
 				'Cleaning Width': '66 cm',
 				'Tank Capacity': '80L Clean / 90L Recovery',
