@@ -6,23 +6,13 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter({
-			// Defaults are fine: outputs to "build"
-			// pages: 'build',
-			// assets: 'build',
-			// fallback: undefined
-		}),
+		adapter: adapter(),
 
-		// If the site will be at:
-		//   https://<user>.github.io/MZLMACHINES
-		// then base must be '/MZLMACHINES' in production.
-		//
-		// Replace "MZLMACHINES" with your repo name if different.
 		paths: {
-			base: process.env.NODE_ENV === 'development' ? '' : '/MZLMACHINES'
+			// '' in dev, '/mzlmachines' when built in Actions
+			base: process.env.NODE_ENV === 'development' ? '' : '/mzlmachines'
 		},
 
-		// Make sure everything is statically generated
 		prerender: {
 			entries: ['*']
 		}
