@@ -10,23 +10,26 @@
 	// ============================================
 	const images = {
 		hero: {
-			main: 'https://www.rapidsupplies.com.au/assets/images/mzl_f30.png',
+			main: '/f30/f30-hero-main.png',
 			environment: '/f30/f30-hero-environment-retail.png'
 		},
 		highlights: {
-			coverage: '/f30/f30-highlights-coverage.png',
 			runtime: '/f30/f30-highlights-runtime.png',
-			compact: '/f30/f30-highlights-size-format.png',
-			controls: '/f30/f30-highlights-ease-of-use.png',
-			quiet: '/f30/f30-highlights-safety-noise.png',
-			facilities: '/f30/f30-highlights-best-for.png'
+			threeInOne: '/f30/f30-highlights-3in1.png',
+			handleFold: '/f30/f30-highlights-handle-fold.png',
+			autoBrush: '/f30/f30-highlights-auto-brush.png',
+			oneKey: '/f30/f30-highlights-onekey.png',
+			efficiency: '/f30/f30-highlights-efficiency.png'
 		},
 		usecases: {
+			factory: '/f30/f30-usecase-factory.png',
 			supermarket: '/f30/f30-usecase-supermarket.png',
+			dininghall: '/f30/f30-usecase-dininghall.png',
+			shoppingmall: '/f30/f30-usecase-shoppingmall.png',
+			hospital: '/f30/f30-usecase-hospital.png',
+			garage: '/f30/f30-usecase-garage.png',
 			schools: '/f30/f30-usecase-schools.png',
-			healthcare: '/f30/f30-usecase-healthcare.png',
 			hospitality: '/f30/f30-usecase-hospitality.png',
-			warehouse: '/f30/f30-usecase-warehouse.png',
 			office: '/f30/f30-usecase-office.png'
 		},
 		performance: {
@@ -34,6 +37,14 @@
 			water: '/f30/f30-performance-water-chemical.png',
 			vacuum: '/f30/f30-performance-vacuum-drying.png',
 			beforeAfter: '/f30/f30-performance-before-after-strip.png'
+		},
+		floors: {
+			epoxy: '/f30/f30-floor-epoxy.png',
+			pvc: '/f30/f30-floor-pvc.png',
+			marble: '/f30/f30-floor-marble.png',
+			ceramic: '/f30/f30-floor-ceramic.png',
+			cement: '/f30/f30-floor-cement.png',
+			wood: '/f30/f30-floor-wooden.png'
 		},
 		battery: {
 			pack: '/f30/f30-battery-pack.png',
@@ -44,6 +55,13 @@
 			controlPanel: '/f30/f30-easeofuse-control-panel.png',
 			operator: '/f30/f30-easeofuse-operator.png',
 			callouts: '/f30/f30-easeofuse-control-callouts.png'
+		},
+		quality: {
+			detachableTank: '/f30/f30-quality-detachable-tank.png',
+			foldingArmrest: '/f30/f30-quality-folding-armrest.png',
+			antiSkidWheel: '/f30/f30-quality-anti-skid-wheel.png',
+			largeWaterIntake: '/f30/f30-quality-large-water-intake.png',
+			waterFilter: '/f30/f30-quality-water-filter.png'
 		},
 		safety: {
 			dryFloor: '/f30/f30-safety-dry-floor.png',
@@ -68,90 +86,114 @@
 
 	// Key specifications
 	const keyStats = [
-		{ label: 'Cleaning width', value: '460 mm' },
-		{ label: 'Productivity', value: 'up to 1,600 m²/h' },
-		{ label: 'Tanks', value: '27 L / 30 L' },
-		{ label: 'Runtime (ECO)', value: 'up to 5.5 hours' }
+		{ label: 'Cleaning width', value: '430 mm' },
+		{ label: 'Theoretical productivity', value: 'up to 1,600 m²/h' },
+		{ label: 'Solution / recovery tanks', value: '27 L / 30 L' },
+		{ label: 'Max runtime (ECO)', value: 'up to 5.5 hours' }
 	];
 
 	// Highlights data
 	const highlights = [
 		{
-			title: 'Coverage',
-			subtitle: 'Up to 1,600 m²/h',
-			description: 'Clean up to 1,600 m² per hour, ideal for keeping medium-size facilities looking fresh with fewer passes.',
-			image: images.highlights.coverage
-		},
-		{
-			title: 'Runtime',
-			subtitle: 'Up to 5.5 hours runtime',
-			description: 'Up to 5.5 hours of runtime in ECO mode lets operators cover multiple zones on a single charge.',
+			title: '5.5h continuous work (ECO mode)',
+			subtitle: 'Work multiple zones on one charge',
+			description: 'Up to 5.5 hours of continuous runtime in ECO mode so operators can clean multiple zones on a single charge.',
 			image: images.highlights.runtime
 		},
 		{
-			title: 'Compact Design',
-			subtitle: 'Walk-behind format',
-			description: 'Slim body and 460 mm cleaning width make it easy to pass through standard internal doorways and work in narrow aisles.',
-			image: images.highlights.compact
+			title: 'Clean, brush and vacuum in one',
+			subtitle: 'One-pass cleaning',
+			description: 'Scrubs and vacuums in a single pass, leaving floors clean and ready to use with minimal downtime.',
+			image: images.highlights.threeInOne
 		},
 		{
-			title: 'Simple Controls',
-			subtitle: 'Intelligent operation',
-			description: 'One-click start and an intelligent control panel help new operators get productive with minimal training.',
-			image: images.highlights.controls
+			title: 'Handle folds 170°',
+			subtitle: 'Easy steering & storage',
+			description: 'A 170° adjustable handle makes the machine easier to steer for different operators and folds down for compact storage.',
+			image: images.highlights.handleFold
 		},
 		{
-			title: 'Quiet Operation',
-			subtitle: 'Battery powered cleaning',
-			description: 'Maintenance-free battery power eliminates trailing cords and supports low-noise daytime cleaning.',
-			image: images.highlights.quiet
+			title: 'Automatic brush lift',
+			subtitle: 'Simplified start-up',
+			description: 'The brush automatically raises and lowers, simplifying start-up and transport while reducing wear on pads and brushes.',
+			image: images.highlights.autoBrush
 		},
 		{
-			title: 'Built for Business',
-			subtitle: 'Busy facilities',
-			description: 'Designed for frequent use in supermarkets, schools, healthcare, hospitality venues, warehouses and office buildings.',
-			image: images.highlights.facilities
+			title: 'One-key start & intelligent panel',
+			subtitle: 'Fast onboarding',
+			description: 'One-key start and an intelligent control panel make operation simple, reducing training time for new users.',
+			image: images.highlights.oneKey
+		},
+		{
+			title: 'High cleaning efficiency',
+			subtitle: 'Up to 1,600 m²/h',
+			description: 'Efficient 430 mm scrub path and squeegee system deliver fast coverage in supermarkets, factories and other busy facilities.',
+			image: images.highlights.efficiency
 		}
 	];
 
 	// Use cases data
 	const usecases = [
 		{
-			title: 'Supermarkets & retail stores',
-			description: 'Entrances, supermarket aisles, checkout lanes and back-of-house storage areas.',
+			title: 'Factory',
+			description: 'Cleans production floors, epoxy and concrete surfaces, corridors and loading areas in light industrial sites.',
+			image: images.usecases.factory
+		},
+		{
+			title: 'Supermarket',
+			description: 'Ideal for grocery aisles, fresh produce sections, checkout lanes and back-of-house service corridors.',
 			image: images.usecases.supermarket
 		},
 		{
-			title: 'Schools, universities & training centres',
-			description: 'Corridors, classrooms, staff rooms and cafeterias.',
+			title: 'Dining hall',
+			description: 'Keeps canteens, cafeterias and food courts clean between meal services and throughout the day.',
+			image: images.usecases.dininghall
+		},
+		{
+			title: 'Shopping mall',
+			description: 'Suitable for entrances, walkways, escalator landings and polished mall concourses with constant pedestrian traffic.',
+			image: images.usecases.shoppingmall
+		},
+		{
+			title: 'Hospital',
+			description: 'Supports hygienic cleaning in corridors, nursing stations and support areas requiring frequent maintenance.',
+			image: images.usecases.hospital
+		},
+		{
+			title: 'Garage',
+			description: 'Handles sealed concrete in basement car parks, garages and access ramps where safety and presentation are important.',
+			image: images.usecases.garage
+		},
+		{
+			title: 'Schools & education',
+			description: 'Corridors, classrooms, assembly halls, libraries and student amenities.',
 			image: images.usecases.schools
 		},
 		{
-			title: 'Healthcare & aged care facilities',
-			description: 'Patient rooms, corridors and common areas where dry, safe floors are essential.',
-			image: images.usecases.healthcare
-		},
-		{
-			title: 'Hotels, hospitality & cafés',
-			description: 'Lobbies, function rooms, dining spaces and back-of-house service corridors.',
+			title: 'Hotels & hospitality',
+			description: 'Hotel corridors, lobbies, function rooms, restaurants and back-of-house traffic areas.',
 			image: images.usecases.hospitality
 		},
 		{
-			title: 'Warehouses, light industrial & workshops',
-			description: 'Cleaning around racking, production zones, packing benches and loading areas.',
-			image: images.usecases.warehouse
-		},
-		{
 			title: 'Offices & public buildings',
-			description: 'Foyers, amenities, circulation spaces and shared staff areas.',
+			description: 'Reception areas, foyers, shared spaces, amenities and back-of-house corridors.',
 			image: images.usecases.office
 		}
+	];
+
+	const floorTypes = [
+		{ title: 'Epoxy floor', image: images.floors.epoxy },
+		{ title: 'PVC floor', image: images.floors.pvc },
+		{ title: 'Marble floor', image: images.floors.marble },
+		{ title: 'Ceramic tile', image: images.floors.ceramic },
+		{ title: 'Cement floor', image: images.floors.cement },
+		{ title: 'Wooden floor', image: images.floors.wood }
 	];
 
 	// Technical specifications
 	const specifications = {
 		performance: [
-			{ label: 'Cleaning width', value: '460 mm' },
+			{ label: 'Cleaning width', value: '430 mm' },
 			{ label: 'Theoretical productivity', value: 'up to 1,600 m²/h' }
 		],
 		tanks: [
@@ -159,8 +201,8 @@
 			{ label: 'Recovery tank capacity', value: '30 L' }
 		],
 		power: [
-			{ label: 'System voltage', value: '24 V (2 × 12 V)' },
-			{ label: 'Battery type & capacity', value: 'Maintenance-free, 85 Ah' },
+			{ label: 'System voltage', value: '24 V DC (2 × 12 V)' },
+			{ label: 'Battery type & capacity', value: 'Maintenance-free gel batteries, 12 V × 2 – 83 Ah' },
 			{ label: 'Max runtime (ECO)', value: 'up to 5.5 hours' }
 		],
 		motors: [
@@ -169,39 +211,71 @@
 		],
 		brush: [
 			{ label: 'Brush type', value: 'Disc' },
-			{ label: 'Brush width', value: '460 mm' },
+			{ label: 'Brush width', value: '430 mm' },
 			{ label: 'Squeegee width', value: '620 mm' },
-			{ label: 'Approx. brush pressure', value: '23 kg' }
+			{ label: 'Approx. brush pressure', value: 'about 23 kg' }
 		],
 		dimensions: [
-			{ label: 'Dimensions (L × W × H)', value: '900 × 575 × 1,200 mm' },
-			{ label: 'Weight (with batteries)', value: '116 kg' }
+			{ label: 'Overall dimensions (L × W × H)', value: 'approx. 900 × 575 × 1200 mm' },
+			{ label: 'Net weight (with batteries)', value: 'approx. 116 kg' }
+		],
+		noise: [
+			{ label: 'Noise level', value: 'Not specified by manufacturer' }
 		],
 		warranty: [
-			{ label: 'Machine warranty', value: '1 year warranty with ongoing service support' }
+			{ label: 'Machine warranty', value: '12 months (standard commercial use, conditions apply)' },
+			{ label: 'Battery warranty', value: '12 months (subject to battery supplier terms)' }
 		]
 	};
+
+	const qualityFeatures = [
+		{
+			title: 'Detachable water tank',
+			description: 'The large-capacity water tank lifts out for quick emptying, rinsing and inspection, reducing turnaround times between jobs.',
+			image: images.quality.detachableTank
+		},
+		{
+			title: 'Integrated folding armrest',
+			description: 'A strong, integrated armrest folds up to 170 degrees to suit different operators and reduce space when the machine is stored or transported.',
+			image: images.quality.foldingArmrest
+		},
+		{
+			title: 'Thickened anti-skid wheel',
+			description: 'Durable, thickened anti-skid wheels provide safer manoeuvring, flexible steering and long service life on busy commercial floors.',
+			image: images.quality.antiSkidWheel
+		},
+		{
+			title: 'Large size water intake',
+			description: 'A wide-mouth fill port allows quick, convenient refilling of the solution tank with less spillage and mess.',
+			image: images.quality.largeWaterIntake
+		},
+		{
+			title: 'Clean water filter',
+			description: 'An integrated clean-water filter traps debris from the solution tank, helping protect valves and jets and maintain consistent water flow.',
+			image: images.quality.waterFilter
+		}
+	];
 
 	// Accessories data
 	const accessories = [
 		{
 			title: 'Brushes & pads',
-			description: 'Soft, medium and more aggressive brush and pad options for different floor types and soil levels.',
+			description: 'Range of brushes and pads for different floor types and soil levels, from light maintenance cleaning through to more aggressive scrubbing.',
 			image: images.accessories.brushes
 		},
 		{
 			title: 'Squeegee blades',
-			description: 'Standard blades for everyday sites and oil-resistant options for workshops and industrial environments.',
+			description: 'Replacement front and rear squeegee blades, including blade options suitable for oily or greasy floors.',
 			image: images.accessories.squeegee
 		},
 		{
 			title: 'Cleaning chemicals',
-			description: 'Neutral detergents and degreasers formulated for auto-scrubbers on tiles, vinyl and sealed concrete.',
+			description: 'Neutral cleaners, degreasers and sanitising detergents matched to commercial hard floor maintenance.',
 			image: images.accessories.chemicals
 		},
 		{
 			title: 'Handling & storage',
-			description: 'Ramps, covers and other accessories to make transport and storage between sites easier.',
+			description: 'Ramps, covers and other accessories to move, protect and store the machine between sites or shifts.',
 			image: images.accessories.handling
 		}
 	];
@@ -434,7 +508,7 @@
 	<title>MZL F30 Mini Battery Walk-Behind Floor Scrubber | MZL Machines</title>
 	<meta
 		name="description"
-		content="MZL F30 - Big scrubber performance in a compact 460 mm footprint. Up to 1,600 m²/h productivity with 5.5 hours runtime. Perfect for retail, healthcare, hospitality and more."
+		content="MZL F30 mini battery walk-behind floor scrubber – compact 30L scrubber for daily cleaning. 430 mm cleaning width, up to 1,600 m²/h productivity and up to 5.5h runtime in ECO mode."
 	/>
 </svelte:head>
 
@@ -450,11 +524,11 @@
 		<div class="hero-content">
 			<span class="hero-badge animate-item">MZL F30 Series</span>
 			<h1 class="hero-title">
-				Mini Battery<br />
-				<span class="accent">Walk-Behind</span><br />
+				MZL F30 Mini<br />
+				<span class="accent">Battery Walk-Behind</span><br />
 				Floor Scrubber
 			</h1>
-			<p class="hero-tagline">Big scrubber performance in a compact 460 mm footprint.</p>
+			<p class="hero-tagline">Compact 30L scrubber for fast, daily cleaning of busy floors.</p>
 			
 			<div class="key-stats">
 				{#each keyStats as stat}
@@ -474,7 +548,7 @@
 						<polyline points="7,10 12,15 17,10"/>
 						<line x1="12" y1="15" x2="12" y2="3"/>
 					</svg>
-					Download Brochure
+					Download Brochure / Spec Sheet
 				</a>
 			</div>
 		</div>
@@ -495,7 +569,7 @@
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">Key Features</span>
-			<h2 class="section-title">Key features of the MZL F30 mini floor scrubber</h2>
+			<h2 class="section-title">Key features of the MZL F30 floor scrubber</h2>
 		</div>
 
 		<div class="highlights-grid">
@@ -524,10 +598,10 @@
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">Industries & Applications</span>
-			<h2 class="section-title">Where the MZL F30 mini scrubber works best</h2>
+			<h2 class="section-title">Where the MZL F30 scrubber works best</h2>
 			<p class="section-subtitle">
-				The MZL F30 is a compact commercial scrubber-dryer for everyday cleaning of hard and resilient floors. 
-				It suits sites that need regular, reliable cleaning in tight spaces and busy walkways.
+				The MZL F30 is a compact mini walk-behind scrubber built for regular cleaning of medium-size floor areas. 
+				Its 27/30 L tank set, long ECO runtime and one-pass cleaning performance make it ideal for daily maintenance across commercial, industrial and public facilities.
 			</p>
 		</div>
 
@@ -550,7 +624,7 @@
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">Cleaning Performance</span>
-			<h2 class="section-title">Deep clean in a single pass</h2>
+			<h2 class="section-title">Cleaning performance: deep clean in a single pass</h2>
 		</div>
 
 		<!-- 4.1 Scrubbing Power -->
@@ -558,10 +632,11 @@
 			<div class="performance-content animate-item">
 				<h3 class="performance-title">Scrubbing power</h3>
 				<ul class="performance-list">
-					<li>Disc brush configuration for consistent contact on smooth and lightly textured hard floors</li>
-					<li>460 mm scrubbing width for productive cleaning in medium-size spaces</li>
-					<li>350 W brush motor delivers strong mechanical agitation for everyday soils</li>
-					<li>Approx. 23 kg brush pressure helps lift embedded dirt from tiles, vinyl, epoxy and sealed concrete</li>
+					<li>Brush type: disc brush</li>
+					<li>Cleaning width: 430 mm scrub path for efficient coverage in mid-sized zones.</li>
+					<li>Brush motor power: 350 W for strong mechanical action on daily soil and more stubborn marks.</li>
+					<li>Approx. brush pressure: about 23 kg for consistent contact on smooth and lightly textured floors.</li>
+					<li>Suitable floor types: epoxy floors, PVC floors, marble floors, ceramic tiles, cement floors and wooden floors.</li>
 				</ul>
 			</div>
 			<div class="performance-image">
@@ -574,9 +649,10 @@
 			<div class="performance-content animate-item">
 				<h3 class="performance-title">Water and chemical control</h3>
 				<ul class="performance-list">
-					<li>27 L solution tank for extended cleaning runs between refills</li>
-					<li>30 L recovery tank to capture dirty water and keep wastewater separate</li>
-					<li>Standard and ECO modes to match solution flow to soil level and extend run time on maintenance cleans</li>
+					<li>Solution tank capacity: 27 L.</li>
+					<li>Recovery tank capacity: 30 L.</li>
+					<li>The detachable twin-tank design reduces trips to fill and empty, helping crews maintain productivity in larger areas.</li>
+					<li>Standard and ECO working modes support controlled solution flow and help optimise chemical usage over long shifts.</li>
 				</ul>
 			</div>
 			<div class="performance-image">
@@ -589,13 +665,14 @@
 			<div class="performance-content animate-item">
 				<h3 class="performance-title">Vacuum and drying</h3>
 				<ul class="performance-list">
-					<li>310 W vacuum motor for consistent water pickup</li>
-					<li>620 mm squeegee follows the cleaning path and collects slurry in one pass</li>
-					<li>Leaves floors dry quickly to support slip-risk reduction in high-traffic zones</li>
+					<li>Vacuum motor power: 310 W for reliable recovery of dirty solution from the floor.</li>
+					<li>Squeegee width: 620 mm, capturing the scrub path and leaving a dry, safe surface behind the machine.</li>
+					<li>One-pass cleaning and drying reduce slip risk and allow quick return-to-service for high-traffic spaces.</li>
 				</ul>
 			</div>
 			<div class="performance-image">
 				<img src={images.performance.vacuum} alt="Vacuum and drying" />
+				<img src={images.performance.beforeAfter} alt="Before and after cleaning strip" style="margin-top: 1rem; border-radius: var(--radius-sm); background: var(--glass);" />
 			</div>
 		</div>
 	</div>
@@ -610,7 +687,7 @@
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">Battery & Power</span>
-			<h2 class="section-title">Ready for long shifts</h2>
+			<h2 class="section-title">Battery and power: compact machine, long runtime</h2>
 		</div>
 
 		<div class="battery-grid">
@@ -625,7 +702,7 @@
 						<span class="battery-spec-label">Battery configuration</span>
 					</div>
 					<div class="battery-spec">
-						<span class="battery-spec-value">85 Ah</span>
+						<span class="battery-spec-value">83 Ah</span>
 						<span class="battery-spec-label">Battery capacity</span>
 					</div>
 					<div class="battery-spec">
@@ -634,12 +711,17 @@
 					</div>
 				</div>
 				<p class="battery-description">
-					24 V battery system using 2 × 12 V, 85 Ah maintenance-free batteries. 
-					Dedicated charger for simple "plug in and charge" operation at the end of each shift.
+					Battery system: 24 V (2 × 12 V) maintenance-free gel battery pack. Battery capacity: 83 Ah gel batteries sized for everyday commercial cleaning workloads.
+					Typical runtime: up to 5.5 hours in ECO mode on a full charge, depending on floor type, soil level and operator technique.
+					Charging method: supplied 24 V charger – simply park the machine, connect the charger and allow it to replenish between shifts.
 				</p>
 			</div>
 			<div class="battery-images animate-item">
 				<img src={images.battery.pack} alt="Battery pack" class="battery-main-image" />
+				<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1rem;">
+					<img src={images.battery.charging} alt="Battery charging" style="border-radius: var(--radius-sm); background: var(--glass); padding: 0.5rem;" />
+					<img src={images.battery.runtime} alt="Battery runtime graphic" style="border-radius: var(--radius-sm); background: var(--glass); padding: 0.5rem;" />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -662,7 +744,7 @@
 					</svg>
 				</div>
 				<h3>Intuitive controls</h3>
-				<p>One-click start and clear panel layout</p>
+				<p>One-key start and an intelligent control panel make it simple for operators to select modes and begin cleaning with minimal training.</p>
 			</div>
 			<div class="easeofuse-card animate-item">
 				<div class="easeofuse-icon">
@@ -672,7 +754,7 @@
 					</svg>
 				</div>
 				<h3>Quick training</h3>
-				<p>Simple walk-behind operation helps new staff become confident quickly</p>
+				<p>Straightforward operation and familiar walk-behind layout help new staff become confident quickly and maintain consistent results.</p>
 			</div>
 			<div class="easeofuse-card animate-item">
 				<div class="easeofuse-icon">
@@ -683,7 +765,7 @@
 					</svg>
 				</div>
 				<h3>Ergonomic design</h3>
-				<p>Compact body and balanced weight help reduce push force and operator fatigue</p>
+				<p>Push-behind configuration, balanced weight distribution and a comfortable handle help reduce operator fatigue over longer shifts.</p>
 			</div>
 			<div class="easeofuse-card animate-item">
 				<div class="easeofuse-icon">
@@ -696,7 +778,7 @@
 					</svg>
 				</div>
 				<h3>Compact footprint</h3>
-				<p>Overall size around 900 × 575 mm makes it easy to manoeuvre in corridors and storerooms</p>
+				<p>The F30’s compact body and 430 mm deck make it easy to manoeuvre in aisles, corridors and between fixtures while still delivering strong coverage.</p>
 			</div>
 		</div>
 
@@ -706,7 +788,53 @@
 	</div>
 </section>
 
-<!-- Section 7: Safety, Hygiene & Compliance -->
+<!-- Section 7: Supported Floor Types -->
+<section class="section floor-section animate-section">
+	<div class="section-container">
+		<div class="section-header animate-item">
+			<span class="section-eyebrow">Floor Compatibility</span>
+			<h2 class="section-title">Supported floor types</h2>
+			<p class="section-subtitle">
+				The MZL F30 is designed to handle a wide range of commercial floor surfaces, delivering consistent cleaning performance across different materials.
+			</p>
+		</div>
+
+		<div class="floor-grid">
+			{#each floorTypes as floor, i}
+				<div class="floor-card animate-item" style="animation-delay: {i * 0.05}s">
+					<div class="floor-image">
+						<img src={floor.image} alt={floor.title} />
+					</div>
+					<h3 class="floor-title">{floor.title}</h3>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
+
+<!-- Section 7: Machine Quality & Maintenance-Friendly Design -->
+<section class="section quality-section animate-section">
+	<div class="section-container">
+		<div class="section-header animate-item">
+			<span class="section-eyebrow">Machine Quality</span>
+			<h2 class="section-title">Machine quality and operator-friendly design</h2>
+		</div>
+
+		<div class="usecases-grid">
+			{#each qualityFeatures as feature, i}
+				<div class="usecase-card" style="animation-delay: {i * 0.05}s">
+					<div class="usecase-image">
+						<img src={feature.image} alt={feature.title} />
+					</div>
+					<h3 class="usecase-title">{feature.title}</h3>
+					<p class="usecase-description">{feature.description}</p>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
+
+<!-- Section 8: Safety, Hygiene & Compliance -->
 <section class="section safety-section animate-section">
 	<div class="safety-bg">
 		<div class="gradient-orb orb-safety"></div>
@@ -720,30 +848,30 @@
 
 		<div class="safety-grid">
 			<div class="safety-card animate-item">
-				<div class="safety-icon safe"></div>
-				<h3>Drier floors</h3>
-				<p>Strong vacuum pickup and 620 mm squeegee work together to remove solution in one pass</p>
+				<img src={images.safety.dryFloor} alt="Dry floors" class="safety-image" />
+				<h3>Drier floors, reduced slip risk</h3>
+				<p>The 310 W vacuum motor and 620 mm squeegee work together to leave floors clean and dry in a single pass, helping reduce slip hazards in public spaces.</p>
 			</div>
 			<div class="safety-card animate-item">
-				<div class="safety-icon cable"></div>
-				<h3>No trailing power cable</h3>
-				<p>Battery operation removes the trip hazard of cords on the floor</p>
+				<img src={images.hero.environment} alt="Low-noise cleaning" class="safety-image" />
+				<h3>Low-noise daytime cleaning</h3>
+				<p>Battery power and efficient drive components support low-noise operation, suitable for use during trading hours and in occupied facilities.</p>
 			</div>
 			<div class="safety-card animate-item">
-				<div class="safety-icon tanks"></div>
-				<h3>Separate tanks</h3>
-				<p>27 L solution and 30 L recovery tanks make filling and emptying simple and help keep the machine hygienic</p>
+				<img src={images.safety.tankCleaning} alt="Hygienic tanks" class="safety-image" />
+				<h3>Hygienic tank design</h3>
+				<p>Detachable tanks with large openings make it easier to empty, rinse and inspect solution and recovery tanks after use.</p>
 			</div>
 			<div class="safety-card animate-item">
-				<div class="safety-icon certified"></div>
-				<h3>Certified construction</h3>
-				<p>Built with internationally recognised safety and quality certifications, including CE and RoHS</p>
+				<img src={images.safety.certifications} alt="Certifications" class="safety-image" />
+				<h3>Quality and certifications</h3>
+				<p>Built to commercial standards with CE, RoHS and related certifications for the machine platform.</p>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- Section 8: Dimensions & Footprint -->
+<!-- Section 9: Dimensions & Footprint -->
 <section class="section dimensions-section animate-section">
 	<div class="section-container">
 		<div class="section-header animate-item">
@@ -755,19 +883,15 @@
 			<div class="dimensions-content animate-item">
 				<div class="dimension-item">
 					<span class="dimension-label">Overall dimensions (L × W × H)</span>
-					<span class="dimension-value">900 × 575 × 1,200 mm</span>
+					<span class="dimension-value">approx. 900 × 575 × 1,200 mm</span>
 				</div>
 				<div class="dimension-item">
 					<span class="dimension-label">Squeegee width</span>
 					<span class="dimension-value">620 mm</span>
 				</div>
-				<div class="dimension-item">
-					<span class="dimension-label">Body width</span>
-					<span class="dimension-value">Under 600 mm</span>
-				</div>
 				<p class="dimensions-note">
-					Width under 600 mm so it fits comfortably through standard internal doors. 
-					Compact wheelbase and walk-behind design make turning in narrow aisles, storerooms and around obstacles straightforward.
+					The F30’s compact footprint makes it suitable for standard commercial corridors, storerooms and service areas. 
+					The 430 mm scrub path lets it work neatly between racking, around obstacles and in congested zones.
 				</p>
 			</div>
 			<div class="dimensions-image animate-item">
@@ -777,7 +901,7 @@
 	</div>
 </section>
 
-<!-- Section 9: What's Included & Optional Accessories -->
+<!-- Section 10: What's Included & Optional Accessories -->
 <section class="section included-section animate-section">
 	<div class="included-bg">
 		<div class="gradient-orb orb-included"></div>
@@ -792,10 +916,11 @@
 		<div class="included-grid">
 			<div class="included-list animate-item">
 				<ul>
-					<li>MZL F30 mini walk-behind floor scrubber with batteries installed</li>
-					<li>Standard disc brush or pad driver (configuration dependent)</li>
-					<li>Squeegee assembly with blades</li>
-					<li>Dedicated battery charger</li>
+					<li>MZL F30 mini walk-behind floor scrubber</li>
+					<li>Maintenance-free gel batteries installed</li>
+					<li>24 V charger</li>
+					<li>Standard disc brush or pad driver (model-dependent)</li>
+					<li>Squeegee assembly complete with blades</li>
 					<li>Operator manual and quick-start guide</li>
 				</ul>
 			</div>
@@ -823,12 +948,12 @@
 	</div>
 </section>
 
-<!-- Section 10: Technical Specifications -->
+<!-- Section 11: Technical Specifications -->
 <section class="section specs-section animate-section">
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">Technical Specifications</span>
-			<h2 class="section-title">MZL F30 mini battery walk-behind floor scrubber</h2>
+			<h2 class="section-title">Technical specifications – MZL F30 mini walk-behind floor scrubber</h2>
 		</div>
 
 		<div class="specs-table">
@@ -885,6 +1010,16 @@
 			<div class="spec-category">
 				<h3 class="spec-category-title">Dimensions & Weight</h3>
 				{#each specifications.dimensions as spec}
+					<div class="spec-row">
+						<span class="spec-label">{spec.label}</span>
+						<span class="spec-value">{spec.value}</span>
+					</div>
+				{/each}
+			</div>
+
+			<div class="spec-category">
+				<h3 class="spec-category-title">Noise</h3>
+				{#each specifications.noise as spec}
 					<div class="spec-row">
 						<span class="spec-label">{spec.label}</span>
 						<span class="spec-value">{spec.value}</span>
@@ -1583,6 +1718,58 @@
 	}
 
 	/* ========================
+	   FLOOR TYPES SECTION
+	   ======================== */
+	.floor-section {
+		background: var(--bg-section);
+	}
+
+	.floor-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.25rem;
+		margin-top: 1rem;
+	}
+
+	.floor-card {
+		padding: 1.25rem;
+		background: var(--glass);
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-sm);
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		transition: all 0.3s ease;
+	}
+
+	.floor-card:hover {
+		transform: translateY(-3px);
+		border-color: rgba(45, 212, 191, 0.3);
+	}
+
+	.floor-image {
+		background: #f3f4f6;
+		border-radius: var(--radius-sm);
+		padding: 0.75rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 140px;
+	}
+
+	.floor-image img {
+		max-width: 100%;
+		max-height: 110px;
+		object-fit: contain;
+	}
+
+	.floor-title {
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--text-primary);
+	}
+
+	/* ========================
 	   SAFETY SECTION
 	   ======================== */
 	.safety-section {
@@ -1609,6 +1796,14 @@
 		gap: 1.5rem;
 	}
 
+	.safety-image {
+		width: 100%;
+		display: block;
+		border-radius: var(--radius-sm);
+		margin-bottom: 1rem;
+		background: var(--glass);
+	}
+
 	.safety-card {
 		padding: 2rem;
 		background: var(--glass);
@@ -1620,15 +1815,6 @@
 	.safety-card:hover {
 		transform: translateY(-4px);
 		border-color: rgba(45, 212, 191, 0.3);
-	}
-
-	.safety-icon {
-		width: 48px;
-		height: 48px;
-		margin-bottom: 1rem;
-		background: var(--accent-teal);
-		border-radius: 50%;
-		opacity: 0.8;
 	}
 
 	.safety-card h3 {
