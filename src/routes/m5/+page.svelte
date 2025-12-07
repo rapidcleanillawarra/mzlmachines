@@ -5,168 +5,172 @@
 
 	gsap.registerPlugin(ScrollTrigger);
 
-	// ============================================
-	// IMAGE CONFIGURATION - Replace paths as needed
-	// ============================================
 	const images = {
 		hero: {
-			main: '/f60/f60-hero-main.png',
-			environment: '/f60/f60-hero-environment-retail.png'
+			main: '/m5/m5-hero-main.png',
+			environment: '/m5/m5-hero-environment.png'
 		},
 		highlights: {
-			coverage: '/f60/f60-highlights-coverage.png',
-			runtime: '/f60/f60-highlights-runtime.png',
-			traction: '/f60/f60-highlights-size-format.png',
-			controls: '/f60/f60-highlights-ease-of-use.png',
-			quiet: '/f60/f60-highlights-safety-noise.png',
-			facilities: '/f60/f60-highlights-best-for.png'
+			tanks: '/m5/m5-performance-water-chemical.png',
+			onePass: '/m5/m5-performance-before-after-strip.png',
+			autoBrush: '/m5/m5-easeofuse-control-panel.png',
+			battery: '/m5/m5-battery-pack.png',
+			controls: '/m5/m5-easeofuse-control-panel.png',
+			wheels: '/m5/m5-maintenance-anti-skid-wheel.png'
 		},
 		usecases: {
-			supermarket: '/f60/f60-usecase-supermarket.png',
-			mall: '/f60/f60-usecase-mall.png',
-			schools: '/f60/f60-usecase-schools.png',
-			healthcare: '/f60/f60-usecase-healthcare.png',
-			warehouse: '/f60/f60-usecase-warehouse.png',
-			office: '/f60/f60-usecase-office.png'
+			supermarket: '/m5/m5-environment-supermarket.png',
+			office: '/m5/m5-environment-office.png',
+			warehouse: '/m5/m5-environment-warehouse.png',
+			hospital: '/m5/m5-environment-hospital.png',
+			school: '/m5/m5-environment-school.png',
+			hotel: '/m5/m5-environment-hotel.png'
 		},
 		performance: {
-			scrubbing: '/f60/f60-performance-scrubbing-power.png',
-			water: '/f60/f60-performance-water-chemical.png',
-			vacuum: '/f60/f60-performance-vacuum-drying.png',
-			beforeAfter: '/f60/f60-performance-before-after-strip.png'
+			scrubbing: '/m5/m5-performance-scrubbing.png',
+			water: '/m5/m5-performance-water-chemical.png',
+			vacuum: '/m5/m5-performance-vacuum-drying.png',
+			beforeAfter: '/m5/m5-performance-before-after-strip.png'
+		},
+		floors: {
+			ceramic: '/m5/m5-floor-ceramic.png',
+			pvc: '/m5/m5-floor-pvc.png',
+			concrete: '/m5/m5-floor-concrete.png',
+			marble: '/m5/m5-floor-marble.png'
 		},
 		battery: {
-			pack: '/f60/f60-battery-pack.png',
-			charging: '/f60/f60-battery-charging.png',
-			runtime: '/f60/f60-battery-runtime-graphic.png'
+			pack: '/m5/m5-battery-pack.png',
+			charging: '/m5/m5-battery-charging.png',
+			runtime: '/m5/m5-battery-runtime-graphic.png'
 		},
 		easeOfUse: {
-			controlPanel: '/f60/f60-easeofuse-control-panel.png',
-			operator: '/f60/f60-easeofuse-operator.png',
-			callouts: '/f60/f60-easeofuse-control-callouts.png'
+			controlPanel: '/m5/m5-easeofuse-control-panel.png',
+			operator: '/m5/m5-easeofuse-operator.png',
+			callouts: '/m5/m5-easeofuse-control-callouts.png'
 		},
 		safety: {
-			dryFloor: '/f60/f60-safety-dry-floor.png',
-			tankCleaning: '/f60/f60-hygiene-tank-cleaning.png',
-			certifications: '/f60/f60-compliance-certifications.png'
+			dryFloor: '/m5/m5-safety-dry-floor.png',
+			tankCleaning: '/m5/m5-hygiene-tank-cleaning.png',
+			certifications: '/m5/m5-compliance-certifications.png'
 		},
 		dimensions: {
-			top: '/f60/f60-dimensions-top.png',
-			side: '/f60/f60-dimensions-side.png',
-			narrowAisle: '/f60/f60-footprint-narrow-aisle.png'
+			top: '/m5/m5-dimensions-top.png',
+			side: '/m5/m5-dimensions-side.png',
+			narrowAisle: '/m5/m5-footprint-narrow-aisle.png'
 		},
 		included: {
-			kit: '/f60/f60-included-kit.png'
+			kit: '/m5/m5-included-kit.png'
 		},
 		accessories: {
-			brushes: '/f60/f60-accessories-brushes-pads.png',
-			squeegee: '/f60/f60-accessories-squeegee-blades.png',
-			chemicals: '/f60/f60-accessories-chemicals.png',
-			handling: '/f60/f60-accessories-handling-storage.png'
+			brushes: '/m5/m5-accessories-brushes-pads.png',
+			squeegee: '/m5/m5-accessories-squeegee-blades.png',
+			chemicals: '/m5/m5-accessories-chemicals.png',
+			handling: '/m5/m5-accessories-handling-storage.png'
 		}
 	};
 
-	// Key specifications
 	const keyStats = [
 		{ label: 'Cleaning width', value: '560 mm' },
-		{ label: 'Theoretical productivity', value: 'up to 3,000 m²/h' },
-		{ label: 'Solution / recovery tanks', value: '60 L / 65 L' },
-		{ label: 'Max runtime (ECO)', value: 'up to 5.5 hours' }
+		{ label: 'Theoretical productivity', value: 'approx. 2,000 m²/h' },
+		{ label: 'Solution / recovery tanks', value: '50 L / 50 L' },
+		{ label: 'Typical runtime (standard mode)', value: '≈4.5 hours' }
 	];
 
-	// Highlights data
 	const highlights = [
 		{
-			title: 'Long runtime & ECO mode',
-			subtitle: 'Up to 5.5 hours',
-			description: 'ECO mode delivers up to 5.5 hours of continuous runtime for extended cleaning cycles with fewer interruptions.',
-			image: images.highlights.runtime
+			title: 'Dual 50 L tanks',
+			subtitle: 'Longer cleaning runs',
+			description: '50 L solution and 50 L recovery tanks reduce refills and dumps, extending cleaning cycles.',
+			image: images.highlights.tanks
 		},
 		{
 			title: '3-in-1 cleaning',
 			subtitle: 'Scrub, vacuum, dry',
-			description: 'Brush, suction and squeegee work together so floors are scrubbed, vacuumed and dried in a single pass.',
+			description: 'Disc brush, suction motor and squeegee clean and dry in one pass, reducing downtime and slip risk.',
+			image: images.highlights.onePass
+		},
+		{
+			title: 'Automatic brush control',
+			subtitle: 'Brush down / up',
+			description: 'Brush deck lowers at start and lifts when cleaning stops—no manual deck handling needed.',
+			image: images.highlights.autoBrush
+		},
+		{
+			title: 'Battery-powered mobility',
+			subtitle: 'Cord-free cleaning',
+			description: 'Walk-behind, battery-powered design improves manoeuvrability around fixtures and corridors.',
+			image: images.highlights.battery
+		},
+		{
+			title: 'Intuitive controls',
+			subtitle: 'Quick start',
+			description: 'Simple control layout with one-click start keeps operation straightforward for any team.',
 			image: images.highlights.controls
 		},
 		{
-			title: 'Automatic water flow control',
-			subtitle: 'Solenoid valve',
-			description: 'Solution only flows when the brush is engaged, conserving water and preventing over-wetting.',
-			image: images.highlights.quiet
-		},
-		{
-			title: 'Automatic brush lift / down',
-			subtitle: 'Simplified operation',
-			description: 'Brush deck lifts and lowers automatically, reducing manual adjustments and operator fatigue.',
-			image: images.highlights.controls
-		},
-		{
-			title: 'Traction motor assist',
-			subtitle: 'Easy manoeuvring',
-			description: 'Built-in traction drive reduces push force, helping operators stay comfortable over long sessions.',
-			image: images.highlights.traction
-		},
-		{
-			title: 'High cleaning productivity',
-			subtitle: 'Up to 3,000 m²/h',
-			description: '560 mm cleaning path plus one-pass cleaning efficiency delivers high throughput on large floor areas.',
-			image: images.highlights.coverage
+			title: 'Anti-skid wheels',
+			subtitle: 'Stable movement',
+			description: 'Thickened anti-skid wheels improve steering stability and safety on wet floors.',
+			image: images.highlights.wheels
 		}
 	];
 
-	// Use cases data
 	const usecases = [
 		{
 			title: 'Retail & Supermarkets',
-			description: 'Efficiently clean supermarket aisles, shopping centre corridors and high-traffic retail floors.',
+			description: 'Efficient cleaning of store aisles, floors under shelves and checkout areas.',
 			image: images.usecases.supermarket
 		},
 		{
-			title: 'Shopping Malls & Public Venues',
-			description: 'Maintain pristine floors in malls, exhibition centres and public buildings with minimal downtime.',
-			image: images.usecases.mall
+			title: 'Offices & Public Buildings',
+			description: 'Maintains clean corridors, lobbies and common areas in offices and public institutions.',
+			image: images.usecases.office
 		},
 		{
-			title: 'Warehouses & Logistics Centres',
-			description: 'Clean concrete and industrial floors, warehouse aisles and loading areas effectively and quickly.',
+			title: 'Warehouses & Light Industrial',
+			description: 'Effective on concrete and sealed industrial floors for general maintenance.',
 			image: images.usecases.warehouse
 		},
 		{
-			title: 'Hospitals & Healthcare Facilities',
-			description: 'Hygienic and efficient cleaning of corridors, lobbies and common areas.',
-			image: images.usecases.healthcare
+			title: 'Hospitals & Healthcare',
+			description: 'Hygienic cleaning of corridors, waiting areas and common spaces.',
+			image: images.usecases.hospital
 		},
 		{
-			title: 'Offices, Schools & Public Buildings',
-			description: 'Keep offices, hallways, schools and educational facilities clean and polished.',
-			image: images.usecases.schools
+			title: 'Schools & Education',
+			description: 'Keeps hallways, classrooms and communal areas safe and clean.',
+			image: images.usecases.school
 		},
 		{
 			title: 'Hotels & Hospitality',
-			description: 'Reliable floor care in hotel lobbies, halls and guest areas for a polished impression.',
-			image: images.usecases.office
+			description: 'Ideal for lobbies, banquet halls, corridors and guest-area floors.',
+			image: images.usecases.hotel
 		}
 	];
 
-	// Technical specifications
+	const floorTypes = [
+		{ title: 'Ceramic / Tile floors', image: images.floors.ceramic },
+		{ title: 'Vinyl / PVC / Sealed floors', image: images.floors.pvc },
+		{ title: 'Sealed concrete / cement', image: images.floors.concrete },
+		{ title: 'Marble / Stone / Terrazzo (sealed)', image: images.floors.marble }
+	];
+
 	const specifications = {
 		performance: [
 			{ label: 'Cleaning width', value: '560 mm' },
-			{ label: 'Theoretical productivity', value: 'up to 3,000 m²/h' }
+			{ label: 'Cleaning productivity', value: 'approx. 2,000 m²/h' }
 		],
 		tanks: [
-			{ label: 'Solution tank capacity', value: '60 L' },
-			{ label: 'Recovery tank capacity', value: '65 L' }
+			{ label: 'Solution tank', value: '50 L' },
+			{ label: 'Recovery tank', value: '50 L' }
 		],
 		power: [
-			{ label: 'System voltage', value: '24 V (2 × 12 V)' },
-			{ label: 'Battery type & capacity', value: 'Maintenance-free batteries, 2 × 12 V (103 Ah typical)' },
-			{ label: 'Max runtime (ECO mode)', value: 'up to 5.5 hours (continuous work)' }
+			{ label: 'Battery', value: '12 V × 2 (maintenance-free gel or lead-acid)' },
+			{ label: 'Runtime', value: 'approx. 4.5 hours continuous work' }
 		],
 		motors: [
-			{ label: 'Brush motor power', value: '500–550 W' },
-			{ label: 'Vacuum motor power', value: '≈400 W' },
-			{ label: 'Traction motor', value: 'Traction-assisted drive for easier manoeuvring' }
+			{ label: 'Brush motor', value: '500 W' },
+			{ label: 'Suction / vacuum motor', value: '310 W' }
 		],
 		brush: [
 			{ label: 'Brush type', value: 'Disc-type, medium hardness' },
@@ -174,67 +178,53 @@
 			{ label: 'Squeegee width', value: '800 mm' }
 		],
 		dimensions: [
-			{ label: 'Dimensions (L × W × H)', value: '1,450 × 800 × 1,100 mm' },
-			{ label: 'Weight (with batteries)', value: '165 kg' }
+			{ label: 'Dimensions (L × W × H)', value: '1,308 × 800 × 1,050 mm' },
+			{ label: 'Weight (with battery)', value: 'approx. 137.5 kg' }
 		],
-		warranty: [
-			{ label: 'Machine warranty', value: '1 year, with lifetime service support from the manufacturer' }
+		other: [
+			{ label: 'Controls', value: 'One-click start, simple panel, automatic brush down/up, 3-in-1 cleaning' }
 		]
 	};
 
-	// Accessories data
 	const accessories = [
 		{
 			title: 'Brushes & pads',
-			description: 'Alternative brush hardness or pad types for different flooring and cleaning tasks.',
+			description: 'Alternate brush or pad types for different floor surfaces like vinyl or sealed concrete.',
 			image: images.accessories.brushes
 		},
 		{
 			title: 'Squeegee blades',
-			description: 'Replacement or specialised blades for varied floor types or heavy-duty drying.',
+			description: 'Replacement or specialised blades for better drying on varied floor types.',
 			image: images.accessories.squeegee
 		},
 		{
 			title: 'Cleaning chemicals',
-			description: 'Compatible detergents, degreasers or disinfectants to enhance cleaning results.',
+			description: 'Compatible detergents, degreasers or disinfectants to boost cleaning performance.',
 			image: images.accessories.chemicals
 		},
 		{
 			title: 'Handling & storage',
-			description: 'Optional trolleys, covers or storage racks to aid transport and storage between jobs.',
+			description: 'Optional trolleys, covers or racks for easier storage and transport.',
 			image: images.accessories.handling
 		}
 	];
 
 	onMount(() => {
-		// Hero animations
 		const heroTl = gsap.timeline();
 		heroTl
-			.fromTo('.hero-badge', 
-				{ opacity: 0, y: 20 }, 
-				{ opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
-			.fromTo('.hero-title', 
-				{ opacity: 0, y: 40 }, 
-				{ opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
-			.fromTo('.hero-tagline', 
-				{ opacity: 0, y: 30 }, 
-				{ opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5')
-			.fromTo('.key-stat', 
-				{ opacity: 0, y: 20 }, 
-				{ opacity: 1, y: 0, stagger: 0.1, duration: 0.5, ease: 'power3.out' }, '-=0.4')
-			.fromTo('.hero-cta-group', 
-				{ opacity: 0, y: 20 }, 
-				{ opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3')
-			.fromTo('.hero-image', 
-				{ opacity: 0, scale: 0.9 }, 
-				{ opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }, '-=0.6');
+			.fromTo('.hero-badge', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+			.fromTo('.hero-title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+			.fromTo('.hero-tagline', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5')
+			.fromTo('.key-stat', { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.1, duration: 0.5, ease: 'power3.out' }, '-=0.4')
+			.fromTo('.hero-cta-group', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3')
+			.fromTo('.hero-image', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }, '-=0.6');
 
-		// Section header animations with ScrollTrigger
 		const sections = document.querySelectorAll('.animate-section');
 		sections.forEach((section) => {
 			const items = section.querySelectorAll('.animate-item');
 			if (items.length > 0) {
-				gsap.fromTo(items,
+				gsap.fromTo(
+					items,
 					{ opacity: 0, y: 50 },
 					{
 						opacity: 1,
@@ -252,8 +242,8 @@
 			}
 		});
 
-		// Highlight cards animation
-		gsap.fromTo('.highlight-card',
+		gsap.fromTo(
+			'.highlight-card',
 			{ opacity: 0, y: 60 },
 			{
 				opacity: 1,
@@ -269,8 +259,8 @@
 			}
 		);
 
-		// Use case cards animation
-		gsap.fromTo('.usecase-card',
+		gsap.fromTo(
+			'.usecase-card',
 			{ opacity: 0, y: 50 },
 			{
 				opacity: 1,
@@ -286,9 +276,9 @@
 			}
 		);
 
-		// Performance blocks animation
 		document.querySelectorAll('.performance-block').forEach((block) => {
-			gsap.fromTo(block,
+			gsap.fromTo(
+				block,
 				{ opacity: 0, y: 40 },
 				{
 					opacity: 1,
@@ -304,8 +294,8 @@
 			);
 		});
 
-		// Battery specs animation
-		gsap.fromTo('.battery-spec',
+		gsap.fromTo(
+			'.battery-spec',
 			{ opacity: 0, y: 30 },
 			{
 				opacity: 1,
@@ -321,8 +311,8 @@
 			}
 		);
 
-		// Ease of use cards animation
-		gsap.fromTo('.easeofuse-card',
+		gsap.fromTo(
+			'.easeofuse-card',
 			{ opacity: 0, y: 40 },
 			{
 				opacity: 1,
@@ -338,8 +328,8 @@
 			}
 		);
 
-		// Safety cards animation
-		gsap.fromTo('.safety-card',
+		gsap.fromTo(
+			'.safety-card',
 			{ opacity: 0, y: 40 },
 			{
 				opacity: 1,
@@ -355,8 +345,8 @@
 			}
 		);
 
-		// Dimension items animation
-		gsap.fromTo('.dimension-item',
+		gsap.fromTo(
+			'.dimension-item',
 			{ opacity: 0, x: -30 },
 			{
 				opacity: 1,
@@ -372,8 +362,8 @@
 			}
 		);
 
-		// Accessory cards animation
-		gsap.fromTo('.accessory-card',
+		gsap.fromTo(
+			'.accessory-card',
 			{ opacity: 0, y: 40 },
 			{
 				opacity: 1,
@@ -389,8 +379,8 @@
 			}
 		);
 
-		// Spec table animation
-		gsap.fromTo('.spec-category',
+		gsap.fromTo(
+			'.spec-category',
 			{ opacity: 0, x: -30 },
 			{
 				opacity: 1,
@@ -406,8 +396,8 @@
 			}
 		);
 
-		// CTA section animation
-		gsap.fromTo('.cta-section > *',
+		gsap.fromTo(
+			'.cta-section > *',
 			{ opacity: 0, y: 40 },
 			{
 				opacity: 1,
@@ -423,22 +413,20 @@
 			}
 		);
 
-		// Cleanup
 		return () => {
-			ScrollTrigger.getAll().forEach(t => t.kill());
+			ScrollTrigger.getAll().forEach((t) => t.kill());
 		};
 	});
 </script>
 
 <svelte:head>
-	<title>MZL F60 Battery-Powered Walk-Behind Floor Scrubber | MZL Machines</title>
+	<title>MZL M5 Battery-Powered Walk-Behind Floor Scrubber | MZL Machines</title>
 	<meta
 		name="description"
-		content="MZL F60 - Compact, battery-powered traction scrubber for medium- and large-scale hard floor cleaning. 560 mm cleaning width, up to 3,000 m²/h productivity, 60/65 L tanks and up to 5.5 hours runtime in ECO mode."
+		content="MZL M5 - Compact 50 L-tank, battery-powered walk-behind scrubber. 560 mm cleaning width, ~2,000 m²/h productivity, dual 50 L tanks, ~4.5h runtime for daily hard-floor cleaning."
 	/>
 </svelte:head>
 
-<!-- Section 1: Hero -->
 <section class="hero">
 	<div class="hero-bg">
 		<div class="gradient-orb orb-1"></div>
@@ -448,16 +436,16 @@
 
 	<div class="hero-container">
 		<div class="hero-content">
-			<span class="hero-badge animate-item">MZL F60 Series</span>
+			<span class="hero-badge animate-item">MZL M5 Series</span>
 			<h1 class="hero-title">
 				Battery-Powered<br />
 				<span class="accent">Walk-Behind</span><br />
 				Floor Scrubber
 			</h1>
 			<p class="hero-tagline">
-				Durable traction scrubber for medium- and large-scale floor cleaning. Compact battery-powered floor scrubber for commercial and industrial environments.
+				Compact 50 L-tank scrubber for efficient daily cleaning of medium to large hard-floor areas.
 			</p>
-			
+
 			<div class="key-stats">
 				{#each keyStats as stat}
 					<div class="key-stat">
@@ -472,9 +460,9 @@
 				<a href="/support" class="btn-secondary">Book a Demo</a>
 				<a href="/support" class="btn-ghost">
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-						<polyline points="7,10 12,15 17,10"/>
-						<line x1="12" y1="15" x2="12" y2="3"/>
+						<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+						<polyline points="7,10 12,15 17,10" />
+						<line x1="12" y1="15" x2="12" y2="3" />
 					</svg>
 					Download Brochure / Spec Sheet
 				</a>
@@ -482,7 +470,7 @@
 		</div>
 
 		<div class="hero-image">
-			<img src={images.hero.main} alt="MZL F60 Floor Scrubber" />
+			<img src={images.hero.main} alt="MZL M5 Floor Scrubber" />
 		</div>
 	</div>
 
@@ -492,12 +480,11 @@
 	</div>
 </section>
 
-<!-- Section 2: Highlights Strip -->
 <section class="section highlights-section animate-section">
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">Key Features</span>
-			<h2 class="section-title">Key features of the MZL F60 floor scrubber</h2>
+			<h2 class="section-title">Key features of the MZL M5 floor scrubber</h2>
 		</div>
 
 		<div class="highlights-grid">
@@ -517,7 +504,6 @@
 	</div>
 </section>
 
-<!-- Section 3: Who This Machine Is For -->
 <section class="section usecases-section animate-section">
 	<div class="usecases-bg">
 		<div class="gradient-orb orb-usecase"></div>
@@ -526,9 +512,9 @@
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">Industries & Applications</span>
-			<h2 class="section-title">Where the MZL F60 scrubber works best</h2>
+			<h2 class="section-title">Where the MZL M5 scrubber works best</h2>
 			<p class="section-subtitle">
-				As a compact commercial floor scrubber and battery-powered walk-behind scrubber, the F60 is designed for regular cleaning of medium to large floor areas across retail, warehouse and institutional spaces.
+				The M5 is a compact commercial floor scrubber designed for regular cleaning of medium to large floor areas across retail, offices, warehouses, healthcare and education.
 			</p>
 		</div>
 
@@ -546,22 +532,20 @@
 	</div>
 </section>
 
-<!-- Section 4: Cleaning Performance -->
 <section class="section performance-section animate-section">
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">Cleaning Performance</span>
-			<h2 class="section-title">Deep clean in a single pass</h2>
+			<h2 class="section-title">Efficient daily cleaning</h2>
 		</div>
 
-		<!-- 4.1 Scrubbing Power -->
 		<div class="performance-block">
 			<div class="performance-content animate-item">
 				<h3 class="performance-title">Scrubbing power</h3>
 				<ul class="performance-list">
-					<li>Disc-type, medium-hardness brush with 560 mm cleaning width tackles daily soils and tougher build-up</li>
-					<li>Approx. 500–550 W brush motor delivers strong scrubbing performance across hard floors</li>
-					<li>Effective on ceramic tile, marble/stone, concrete and PVC/sealed floors</li>
+					<li>Disc-type, medium-hardness brush with 560 mm cleaning width for daily maintenance</li>
+					<li>500 W brush motor delivers consistent scrubbing to lift dust, dirt and light soil</li>
+					<li>Suitable for ceramic tile, vinyl/PVC, sealed concrete and sealed stone/terrazzo</li>
 				</ul>
 			</div>
 			<div class="performance-image">
@@ -569,14 +553,22 @@
 			</div>
 		</div>
 
-		<!-- 4.2 Water and Chemical Control -->
+		<div class="floor-grid animate-item">
+			{#each floorTypes as floor}
+				<div class="floor-card">
+					<img src={floor.image} alt={floor.title} />
+					<span>{floor.title}</span>
+				</div>
+			{/each}
+		</div>
+
 		<div class="performance-block reverse">
 			<div class="performance-content animate-item">
 				<h3 class="performance-title">Water and chemical control</h3>
 				<ul class="performance-list">
-					<li>60 L solution and 65 L recovery tanks reduce refill and dump frequency</li>
-					<li>Solenoid-valve solution delivery only flows when the brush is engaged, preventing over-wetting</li>
-					<li>Large-capacity tanks enable longer uninterrupted cleaning runs</li>
+					<li>50 L solution and 50 L recovery tanks reduce refill cycles for continuous cleaning</li>
+					<li>Water-flow system supports consistent solution delivery and cleaning results</li>
+					<li>Generous capacity enables longer runs for daily maintenance and scheduled deep cleans</li>
 				</ul>
 			</div>
 			<div class="performance-image">
@@ -584,14 +576,13 @@
 			</div>
 		</div>
 
-		<!-- 4.3 Vacuum and Drying -->
 		<div class="performance-block">
 			<div class="performance-content animate-item">
 				<h3 class="performance-title">Vacuum and drying</h3>
 				<ul class="performance-list">
-					<li>≈400 W vacuum motor delivers strong water pickup</li>
-					<li>800 mm squeegee collects slurry efficiently behind the scrub path</li>
-					<li>Scrubbing and vacuuming leave floors clean and dry in a single pass to reduce slip risk</li>
+					<li>310 W suction motor captures dirty water efficiently</li>
+					<li>800 mm squeegee collects slurry and leaves floors ready for foot traffic</li>
+					<li>Scrub, vacuum and dry in one pass to lower slip risk and reduce downtime</li>
 				</ul>
 			</div>
 			<div class="performance-image">
@@ -601,7 +592,6 @@
 	</div>
 </section>
 
-<!-- Section 5: Battery & Powertrain -->
 <section class="section battery-section animate-section">
 	<div class="battery-bg">
 		<div class="gradient-orb orb-battery"></div>
@@ -610,7 +600,7 @@
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">Battery & Power</span>
-			<h2 class="section-title">Battery and power: reliable runtime for extended shifts</h2>
+			<h2 class="section-title">Battery and power: simple, reliable operation</h2>
 		</div>
 
 		<div class="battery-grid">
@@ -622,19 +612,15 @@
 					</div>
 					<div class="battery-spec">
 						<span class="battery-spec-value">2 × 12V</span>
-						<span class="battery-spec-label">Maintenance-free batteries</span>
+						<span class="battery-spec-label">Gel / lead-acid</span>
 					</div>
 					<div class="battery-spec">
-						<span class="battery-spec-value">103 Ah</span>
-						<span class="battery-spec-label">Typical capacity</span>
-					</div>
-					<div class="battery-spec">
-						<span class="battery-spec-value">5.5 hrs</span>
-						<span class="battery-spec-label">Max runtime (ECO)</span>
+						<span class="battery-spec-value">≈4.5h</span>
+						<span class="battery-spec-label">Typical runtime</span>
 					</div>
 				</div>
 				<p class="battery-description">
-					24 V system using 2 × 12 V maintenance-free batteries (103 Ah typical). Up to 5.5 hours runtime in ECO mode supports full-shift cleaning, with traction motor assist for easier manoeuvring and an external charger for straightforward top-up between shifts.
+					12 V × 2 maintenance-free gel or lead-acid battery system delivers about 4.5 hours of continuous cleaning—ideal for routine retail, office or institutional shifts. External charging is straightforward between runs.
 				</p>
 			</div>
 			<div class="battery-images animate-item">
@@ -644,7 +630,6 @@
 	</div>
 </section>
 
-<!-- Section 6: Ease of Use & Training -->
 <section class="section easeofuse-section animate-section">
 	<div class="section-container">
 		<div class="section-header animate-item">
@@ -656,68 +641,67 @@
 			<div class="easeofuse-card animate-item">
 				<div class="easeofuse-icon">
 					<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-						<circle cx="12" cy="12" r="10"/>
-						<polyline points="12,6 12,12 16,14"/>
+						<circle cx="12" cy="12" r="10" />
+						<polyline points="12,6 12,12 16,14" />
 					</svg>
 				</div>
-				<h3>One-key start</h3>
-				<p>Intuitive controls with one-key start simplify operation for any user</p>
+				<h3>One-click start</h3>
+				<p>Simple one-click start and intuitive layout reduce training time.</p>
 			</div>
 			<div class="easeofuse-card animate-item">
 				<div class="easeofuse-icon">
 					<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-						<path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-						<path d="M6 12v5c6 3 12 0 12 0v-5"/>
+						<path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+						<path d="M6 12v5c6 3 12 0 12 0v-5" />
 					</svg>
 				</div>
-				<h3>Intuitive control panel</h3>
-				<p>Clear layout and indicators shorten training time and support quick onboarding</p>
+				<h3>Automatic brush down/up</h3>
+				<p>Brush lowers at start and lifts when stopped—no manual deck handling.</p>
 			</div>
 			<div class="easeofuse-card animate-item">
 				<div class="easeofuse-icon">
 					<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-						<path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
-						<line x1="16" y1="8" x2="2" y2="22"/>
-						<line x1="17.5" y1="15" x2="9" y2="15"/>
+						<path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
+						<line x1="16" y1="8" x2="2" y2="22" />
+						<line x1="17.5" y1="15" x2="9" y2="15" />
 					</svg>
 				</div>
-				<h3>ECO mode</h3>
-				<p>Quickly switch to ECO mode for extended runtime on light or maintenance cleans</p>
+				<h3>Compact, mobile design</h3>
+				<p>Battery-powered mobility makes it easy to manoeuvre through aisles and corridors.</p>
 			</div>
 			<div class="easeofuse-card animate-item">
 				<div class="easeofuse-icon">
 					<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-						<rect x="3" y="3" width="18" height="18" rx="2"/>
-						<path d="M9 3v18"/>
-						<path d="M15 3v18"/>
-						<path d="M3 9h18"/>
-						<path d="M3 15h18"/>
+						<rect x="3" y="3" width="18" height="18" rx="2" />
+						<path d="M9 3v18" />
+						<path d="M15 3v18" />
+						<path d="M3 9h18" />
+						<path d="M3 15h18" />
 					</svg>
 				</div>
-				<h3>Traction-assisted drive</h3>
-				<p>Traction motor reduces push-force and operator fatigue over long cleaning sessions</p>
+				<h3>Ergonomic handle</h3>
+				<p>Comfortable handle and manageable weight help reduce operator fatigue.</p>
 			</div>
 			<div class="easeofuse-card animate-item">
 				<div class="easeofuse-icon">
 					<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-						<path d="M4 7h16"/>
-						<path d="M4 17h16"/>
-						<path d="M9 3v18"/>
-						<path d="M15 3v18"/>
+						<path d="M4 7h16" />
+						<path d="M4 17h16" />
+						<path d="M9 3v18" />
+						<path d="M15 3v18" />
 					</svg>
 				</div>
-				<h3>Compact footprint</h3>
-				<p>Comfortable handle and compact body manoeuvre through aisles, corridors and between fixtures</p>
+				<h3>Battery-powered convenience</h3>
+				<p>Cord-free operation for flexible cleaning around fixtures and in tight spaces.</p>
 			</div>
 		</div>
 
 		<div class="easeofuse-image animate-item">
-			<img src={images.easeOfUse.controlPanel} alt="F60 Control Panel" />
+			<img src={images.easeOfUse.controlPanel} alt="M5 Control Panel" />
 		</div>
 	</div>
 </section>
 
-<!-- Section 7: Safety, Hygiene & Compliance -->
 <section class="section safety-section animate-section">
 	<div class="safety-bg">
 		<div class="gradient-orb orb-safety"></div>
@@ -732,34 +716,33 @@
 		<div class="safety-grid">
 			<div class="safety-card animate-item">
 				<div class="safety-icon safe"></div>
-				<h3>Drier floors</h3>
-				<p>Vacuum and squeegee drying leave floors dry and slip-safe after cleaning passes</p>
+				<h3>Slip-risk reduction</h3>
+				<p>Combined scrubbing, vacuuming and drying leave floors safe for immediate use.</p>
 			</div>
 			<div class="safety-card animate-item">
 				<div class="safety-icon cable"></div>
-				<h3>Automatic water stop</h3>
-				<p>Solenoid valve stops solution flow when the brush stops to avoid puddling</p>
+				<h3>Low-noise cleaning</h3>
+				<p>Battery-powered, low-noise operation suits offices, schools and healthcare.</p>
 			</div>
 			<div class="safety-card animate-item">
 				<div class="safety-icon tanks"></div>
-				<h3>Low-noise cleaning</h3>
-				<p>Battery-powered, low-noise operation suits daytime or after-hours cleaning</p>
+				<h3>Hygienic maintenance</h3>
+				<p>Easy-to-clean tanks and filters support hygienic upkeep in sensitive sites.</p>
 			</div>
 			<div class="safety-card animate-item">
 				<div class="safety-icon certified"></div>
-				<h3>Hygienic tank design</h3>
-				<p>Easy-to-clean solution and recovery tanks support hygiene and simpler maintenance</p>
+				<h3>Certified quality</h3>
+				<p>Built to meet commercial standards (e.g. CE/RoHS) for professional environments.</p>
 			</div>
 			<div class="safety-card animate-item">
 				<div class="safety-icon certified"></div>
-				<h3>Certified construction</h3>
-				<p>Built to meet commercial standards and certifications (CE, RoHS) for professional use</p>
+				<h3>Anti-skid stability</h3>
+				<p>Thickened anti-skid wheels support controlled movement on wet floors.</p>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- Section 8: Dimensions & Footprint -->
 <section class="section dimensions-section animate-section">
 	<div class="section-container">
 		<div class="section-header animate-item">
@@ -770,25 +753,24 @@
 		<div class="dimensions-grid">
 			<div class="dimensions-content animate-item">
 				<div class="dimension-item">
-					<span class="dimension-label">Overall dimensions (L × W × H)</span>
-					<span class="dimension-value">1,450 × 800 × 1,100 mm</span>
+					<span class="dimension-label">Overall product size (L × W × H)</span>
+					<span class="dimension-value">1,308 × 800 × 1,050 mm</span>
 				</div>
 				<div class="dimension-item">
 					<span class="dimension-label">Squeegee width</span>
 					<span class="dimension-value">800 mm</span>
 				</div>
 				<p class="dimensions-note">
-					Compact footprint navigates narrow aisles, corridors and between fixtures while balancing cleaning capacity and manoeuvrability for retail, mall, hospital and school environments.
+					Compact build allows navigation of narrow corridors, retail aisles and confined spaces—ideal for supermarkets, schools, hospitals and offices.
 				</p>
 			</div>
 			<div class="dimensions-image animate-item">
-				<img src={images.dimensions.side} alt="F60 Dimensions" />
+				<img src={images.dimensions.side} alt="M5 Dimensions" />
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- Section 9: What's Included & Optional Accessories -->
 <section class="section included-section animate-section">
 	<div class="included-bg">
 		<div class="gradient-orb orb-included"></div>
@@ -797,15 +779,15 @@
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">What's Included</span>
-			<h2 class="section-title">What's included with the MZL F60 scrubber</h2>
+			<h2 class="section-title">What's included with the MZL M5 scrubber</h2>
 		</div>
 
 		<div class="included-grid">
 			<div class="included-list animate-item">
 				<ul>
 					<li>Base machine</li>
-					<li>Batteries (2 × 12 V maintenance-free)</li>
-					<li>Charger</li>
+					<li>Batteries (maintenance-free gel / lead-acid)</li>
+					<li>Charger / charging cable</li>
 					<li>Standard brush / pad driver</li>
 					<li>Squeegee assembly</li>
 					<li>Manual / quick-start guide</li>
@@ -816,7 +798,6 @@
 			</div>
 		</div>
 
-		<!-- Optional Accessories -->
 		<div class="accessories-header animate-item">
 			<h3 class="accessories-title">Optional accessories and compatible chemicals</h3>
 		</div>
@@ -835,12 +816,11 @@
 	</div>
 </section>
 
-<!-- Section 10: Technical Specifications -->
 <section class="section specs-section animate-section">
 	<div class="section-container">
 		<div class="section-header animate-item">
 			<span class="section-eyebrow">Technical Specifications</span>
-			<h2 class="section-title">Technical specifications – MZL F60 walk-behind floor scrubber</h2>
+			<h2 class="section-title">Technical specifications – MZL M5 walk-behind floor scrubber</h2>
 		</div>
 
 		<div class="specs-table">
@@ -865,7 +845,7 @@
 			</div>
 
 			<div class="spec-category">
-				<h3 class="spec-category-title">Power</h3>
+				<h3 class="spec-category-title">Power / Battery</h3>
 				{#each specifications.power as spec}
 					<div class="spec-row">
 						<span class="spec-label">{spec.label}</span>
@@ -885,7 +865,7 @@
 			</div>
 
 			<div class="spec-category">
-				<h3 class="spec-category-title">Brush / Pad</h3>
+				<h3 class="spec-category-title">Brush / Pad & Recovery</h3>
 				{#each specifications.brush as spec}
 					<div class="spec-row">
 						<span class="spec-label">{spec.label}</span>
@@ -905,8 +885,8 @@
 			</div>
 
 			<div class="spec-category">
-				<h3 class="spec-category-title">Warranty</h3>
-				{#each specifications.warranty as spec}
+				<h3 class="spec-category-title">Other</h3>
+				{#each specifications.other as spec}
 					<div class="spec-row">
 						<span class="spec-label">{spec.label}</span>
 						<span class="spec-value">{spec.value}</span>
@@ -917,16 +897,15 @@
 	</div>
 </section>
 
-<!-- CTA Section -->
 <section class="cta-section">
 	<div class="cta-bg">
 		<div class="cta-gradient"></div>
 	</div>
 	
-	<span class="cta-eyebrow">Ready to see the F60 in action?</span>
+	<span class="cta-eyebrow">Ready to see the M5 in action?</span>
 	<h2 class="cta-title">Get Your Quote Today</h2>
 	<p class="cta-description">
-		Our team will help you determine if the MZL F60 is the right fit for your facility.
+		Our team will help you determine if the MZL M5 is the right fit for your facility.
 		Get personalized recommendations and competitive pricing.
 	</p>
 	<div class="cta-buttons">
@@ -936,9 +915,20 @@
 </section>
 
 <style>
-	/* ========================
-	   HERO SECTION
-	   ======================== */
+	:global(:root) {
+		--bg: #0b0f1a;
+		--bg-section: #0f1524;
+		--glass: rgba(255, 255, 255, 0.04);
+		--glass-border: rgba(255, 255, 255, 0.08);
+		--text-primary: #f8fafc;
+		--text-secondary: #cbd5e1;
+		--text-muted: #94a3b8;
+		--accent-teal: #22d3ee;
+		--accent-mint: #34d399;
+		--radius: 20px;
+		--radius-sm: 14px;
+	}
+
 	.hero {
 		min-height: 100vh;
 		display: flex;
@@ -980,7 +970,7 @@
 	.grid-overlay {
 		position: absolute;
 		inset: 0;
-		background-image: 
+		background-image:
 			linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
 			linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 		background-size: 60px 60px;
@@ -1036,7 +1026,7 @@
 		font-size: clamp(1rem, 2vw, 1.25rem);
 		color: var(--text-secondary);
 		line-height: 1.6;
-		max-width: 500px;
+		max-width: 520px;
 	}
 
 	.key-stats {
@@ -1111,13 +1101,17 @@
 	}
 
 	@keyframes scroll-pulse {
-		0%, 100% { opacity: 0.3; transform: scaleY(1); }
-		50% { opacity: 1; transform: scaleY(1.2); }
+		0%,
+		100% {
+			opacity: 0.3;
+			transform: scaleY(1);
+		}
+		50% {
+			opacity: 1;
+			transform: scaleY(1.2);
+		}
 	}
 
-	/* ========================
-	   BUTTONS
-	   ======================== */
 	.btn-primary {
 		display: inline-flex;
 		align-items: center;
@@ -1184,9 +1178,6 @@
 		font-size: 1.1rem;
 	}
 
-	/* ========================
-	   SECTION COMMON STYLES
-	   ======================== */
 	.section {
 		position: relative;
 		padding: 6rem 2rem;
@@ -1230,9 +1221,6 @@
 		line-height: 1.7;
 	}
 
-	/* ========================
-	   HIGHLIGHTS SECTION
-	   ======================== */
 	.highlights-section {
 		background: var(--bg-section);
 	}
@@ -1299,31 +1287,14 @@
 		line-height: 1.6;
 	}
 
-	/* ========================
-	   USE CASES SECTION
-	   ======================== */
 	.usecases-section {
-		position: relative;
-	}
-
-	.usecases-bg {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-	}
-
-	.orb-usecase {
-		width: 800px;
-		height: 800px;
-		background: radial-gradient(circle, rgba(45, 212, 191, 0.08), transparent 60%);
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		background: radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.08), transparent 30%),
+			radial-gradient(circle at 80% 20%, rgba(52, 211, 153, 0.08), transparent 25%);
 	}
 
 	.usecases-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		gap: 1.5rem;
 	}
 
@@ -1331,111 +1302,109 @@
 		background: var(--glass);
 		border: 1px solid var(--glass-border);
 		border-radius: var(--radius);
-		padding: 1.5rem;
+		padding: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
 		transition: all 0.3s ease;
+		height: 100%;
 	}
 
 	.usecase-card:hover {
 		transform: translateY(-4px);
-		border-color: rgba(45, 212, 191, 0.3);
+		border-color: rgba(52, 211, 153, 0.25);
+		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 	}
 
 	.usecase-image {
-		width: 100%;
-		height: 140px;
-		background: rgba(255, 255, 255, 0.95);
 		border-radius: var(--radius-sm);
-		margin-bottom: 1rem;
+		overflow: hidden;
+		background: rgba(255, 255, 255, 0.95);
+		height: 180px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		overflow: hidden;
 	}
 
 	.usecase-image img {
-		max-width: 90%;
-		max-height: 90%;
-		object-fit: contain;
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: cover;
 	}
 
 	.usecase-title {
 		font-size: 1.1rem;
 		font-weight: 700;
-		color: var(--text-primary);
-		margin-bottom: 0.5rem;
 	}
 
 	.usecase-description {
-		font-size: 0.9rem;
 		color: var(--text-muted);
 		line-height: 1.6;
+		font-size: 0.95rem;
 	}
 
-	/* ========================
-	   PERFORMANCE SECTION
-	   ======================== */
 	.performance-section {
-		background: var(--bg-section);
+		background: linear-gradient(180deg, rgba(34, 211, 238, 0.03), transparent);
 	}
 
 	.performance-block {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
+		grid-template-columns: 1.2fr 1fr;
+		gap: 2rem;
 		align-items: center;
-		margin-bottom: 4rem;
+		padding: 2rem;
+		border-radius: var(--radius);
+		border: 1px solid var(--glass-border);
+		background: rgba(255, 255, 255, 0.02);
+		margin-bottom: 2rem;
 	}
 
 	.performance-block.reverse {
-		direction: rtl;
+		grid-template-columns: 1fr 1.2fr;
 	}
 
-	.performance-block.reverse > * {
-		direction: ltr;
-	}
-
-	.performance-block:last-child {
-		margin-bottom: 0;
-	}
-
-	.performance-title {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--text-primary);
-		margin-bottom: 1.5rem;
-	}
-
-	.performance-list {
-		list-style: none;
-		padding: 0;
+	.performance-content {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
 	}
 
+	.performance-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+
+	.performance-list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		color: var(--text-muted);
+		line-height: 1.6;
+		padding: 0;
+		margin: 0;
+	}
+
 	.performance-list li {
 		position: relative;
-		padding-left: 1.5rem;
-		font-size: 1rem;
-		color: var(--text-secondary);
-		line-height: 1.6;
+		padding-left: 1.2rem;
 	}
 
 	.performance-list li::before {
 		content: '';
 		position: absolute;
 		left: 0;
-		top: 0.5em;
+		top: 0.6rem;
 		width: 6px;
 		height: 6px;
-		background: var(--accent-teal);
 		border-radius: 50%;
+		background: var(--accent-teal);
 	}
 
 	.performance-image {
 		background: rgba(255, 255, 255, 0.95);
 		border-radius: var(--radius);
-		padding: 2rem;
+		padding: 1rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1443,78 +1412,91 @@
 
 	.performance-image img {
 		max-width: 100%;
-		max-height: 300px;
 		object-fit: contain;
 	}
 
-	/* ========================
-	   BATTERY SECTION
-	   ======================== */
+	.floor-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
+		margin: 1rem 0 2.5rem;
+	}
+
+	.floor-card {
+		background: var(--glass);
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius-sm);
+		padding: 1rem;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		align-items: center;
+	}
+
+	.floor-card img {
+		max-width: 100%;
+		height: 120px;
+		object-fit: contain;
+		background: rgba(255, 255, 255, 0.95);
+		border-radius: var(--radius-sm);
+		padding: 0.5rem;
+	}
+
+	.floor-card span {
+		color: var(--text-primary);
+		font-weight: 600;
+	}
+
 	.battery-section {
-		position: relative;
-	}
-
-	.battery-bg {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-	}
-
-	.orb-battery {
-		width: 600px;
-		height: 600px;
-		background: radial-gradient(circle, rgba(34, 211, 238, 0.1), transparent 60%);
-		top: 0;
-		right: -200px;
+		background: var(--bg-section);
 	}
 
 	.battery-grid {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
+		grid-template-columns: 1.2fr 1fr;
+		gap: 2rem;
 		align-items: center;
 	}
 
 	.battery-specs {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 		gap: 1rem;
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 	}
 
 	.battery-spec {
-		padding: 1.5rem;
-		background: var(--glass);
-		border: 1px solid var(--glass-border);
+		padding: 1rem;
 		border-radius: var(--radius-sm);
-		text-align: center;
+		border: 1px solid var(--glass-border);
+		background: var(--glass);
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
 	}
 
 	.battery-spec-value {
-		display: block;
-		font-size: 2rem;
+		font-size: 1.35rem;
 		font-weight: 800;
 		color: var(--accent-teal);
-		margin-bottom: 0.25rem;
 	}
 
 	.battery-spec-label {
-		font-size: 0.75rem;
+		font-size: 0.9rem;
 		color: var(--text-muted);
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
 	}
 
 	.battery-description {
-		font-size: 1rem;
 		color: var(--text-secondary);
 		line-height: 1.7;
+		font-size: 1rem;
 	}
 
 	.battery-images {
 		background: rgba(255, 255, 255, 0.95);
 		border-radius: var(--radius);
-		padding: 2rem;
+		padding: 1.5rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1522,375 +1504,282 @@
 
 	.battery-main-image {
 		max-width: 100%;
-		max-height: 300px;
 		object-fit: contain;
-	}
-
-	/* ========================
-	   EASE OF USE SECTION
-	   ======================== */
-	.easeofuse-section {
-		background: var(--bg-section);
 	}
 
 	.easeofuse-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 1.5rem;
-		margin-bottom: 3rem;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1rem;
+		margin-bottom: 2rem;
 	}
 
 	.easeofuse-card {
-		padding: 2rem;
-		background: var(--glass);
+		padding: 1.25rem;
+		border-radius: var(--radius-sm);
 		border: 1px solid var(--glass-border);
-		border-radius: var(--radius);
-		text-align: center;
-		transition: all 0.3s ease;
-	}
-
-	.easeofuse-card:hover {
-		transform: translateY(-4px);
-		border-color: rgba(45, 212, 191, 0.3);
+		background: var(--glass);
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
 	}
 
 	.easeofuse-icon {
-		width: 64px;
-		height: 64px;
-		margin: 0 auto 1rem;
-		display: flex;
+		width: 48px;
+		height: 48px;
+		border-radius: 12px;
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		background: rgba(45, 212, 191, 0.1);
-		border-radius: 50%;
+		background: rgba(34, 211, 238, 0.1);
 		color: var(--accent-teal);
 	}
 
 	.easeofuse-card h3 {
-		font-size: 1.125rem;
-		font-weight: 700;
-		color: var(--text-primary);
-		margin-bottom: 0.5rem;
+		font-size: 1.1rem;
+		margin: 0;
 	}
 
 	.easeofuse-card p {
-		font-size: 0.9rem;
+		margin: 0;
 		color: var(--text-muted);
 		line-height: 1.6;
+		font-size: 0.95rem;
 	}
 
 	.easeofuse-image {
 		background: rgba(255, 255, 255, 0.95);
 		border-radius: var(--radius);
-		padding: 2rem;
+		padding: 1.5rem;
 		display: flex;
-		align-items: center;
 		justify-content: center;
 	}
 
 	.easeofuse-image img {
 		max-width: 100%;
-		max-height: 350px;
 		object-fit: contain;
 	}
 
-	/* ========================
-	   SAFETY SECTION
-	   ======================== */
 	.safety-section {
-		position: relative;
-	}
-
-	.safety-bg {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-	}
-
-	.orb-safety {
-		width: 700px;
-		height: 700px;
-		background: radial-gradient(circle, rgba(45, 212, 191, 0.08), transparent 60%);
-		bottom: -200px;
-		left: -200px;
+		background: var(--bg-section);
 	}
 
 	.safety-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 1.5rem;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1rem;
 	}
 
 	.safety-card {
-		padding: 2rem;
-		background: var(--glass);
+		padding: 1.25rem;
+		border-radius: var(--radius-sm);
 		border: 1px solid var(--glass-border);
-		border-radius: var(--radius);
-		transition: all 0.3s ease;
-	}
-
-	.safety-card:hover {
-		transform: translateY(-4px);
-		border-color: rgba(45, 212, 191, 0.3);
-	}
-
-	.safety-icon {
-		width: 48px;
-		height: 48px;
-		margin-bottom: 1rem;
-		background: var(--accent-teal);
-		border-radius: 50%;
-		opacity: 0.8;
+		background: var(--glass);
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
 	}
 
 	.safety-card h3 {
-		font-size: 1.125rem;
-		font-weight: 700;
-		color: var(--text-primary);
-		margin-bottom: 0.5rem;
+		margin: 0;
+		font-size: 1.05rem;
 	}
 
 	.safety-card p {
-		font-size: 0.9rem;
+		margin: 0;
 		color: var(--text-muted);
 		line-height: 1.6;
+		font-size: 0.95rem;
 	}
 
-	/* ========================
-	   DIMENSIONS SECTION
-	   ======================== */
+	.safety-icon {
+		width: 42px;
+		height: 42px;
+		border-radius: 10px;
+		background: rgba(34, 211, 238, 0.12);
+	}
+
 	.dimensions-section {
-		background: var(--bg-section);
+		background: radial-gradient(circle at 80% 20%, rgba(52, 211, 153, 0.12), transparent 30%);
 	}
 
 	.dimensions-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
+		gap: 2rem;
 		align-items: center;
 	}
 
 	.dimensions-content {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 1rem;
 	}
 
 	.dimension-item {
-		padding: 1rem 1.5rem;
-		background: var(--glass);
-		border: 1px solid var(--glass-border);
-		border-radius: var(--radius-sm);
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		padding: 1rem;
+		border-radius: var(--radius-sm);
+		border: 1px solid var(--glass-border);
+		background: var(--glass);
 	}
 
 	.dimension-label {
-		font-size: 0.9rem;
 		color: var(--text-secondary);
 	}
 
 	.dimension-value {
-		font-size: 1rem;
 		font-weight: 700;
 		color: var(--accent-teal);
 	}
 
 	.dimensions-note {
-		font-size: 0.95rem;
 		color: var(--text-muted);
 		line-height: 1.7;
-		margin-top: 0.5rem;
 	}
 
 	.dimensions-image {
 		background: rgba(255, 255, 255, 0.95);
 		border-radius: var(--radius);
-		padding: 2rem;
+		padding: 1.5rem;
 		display: flex;
-		align-items: center;
 		justify-content: center;
 	}
 
 	.dimensions-image img {
 		max-width: 100%;
-		max-height: 350px;
 		object-fit: contain;
 	}
 
-	/* ========================
-	   INCLUDED SECTION
-	   ======================== */
 	.included-section {
-		position: relative;
-	}
-
-	.included-bg {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-	}
-
-	.orb-included {
-		width: 600px;
-		height: 600px;
-		background: radial-gradient(circle, rgba(34, 211, 238, 0.08), transparent 60%);
-		top: 0;
-		left: -200px;
+		background: var(--bg-section);
 	}
 
 	.included-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
+		gap: 2rem;
 		align-items: center;
-		margin-bottom: 4rem;
-	}
-
-	.included-list {
-		padding: 2rem;
-		background: var(--glass);
-		border: 1px solid var(--glass-border);
-		border-radius: var(--radius);
+		margin-bottom: 2rem;
 	}
 
 	.included-list ul {
 		list-style: none;
 		padding: 0;
+		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 0.75rem;
+		color: var(--text-muted);
+		line-height: 1.6;
 	}
 
 	.included-list li {
 		position: relative;
-		padding-left: 2rem;
-		font-size: 1rem;
-		color: var(--text-secondary);
-		line-height: 1.6;
+		padding-left: 1.2rem;
 	}
 
 	.included-list li::before {
-		content: '✓';
+		content: '';
 		position: absolute;
 		left: 0;
-		color: var(--accent-teal);
-		font-weight: 700;
+		top: 0.6rem;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--accent-teal);
 	}
 
 	.included-image {
 		background: rgba(255, 255, 255, 0.95);
 		border-radius: var(--radius);
-		padding: 2rem;
+		padding: 1.5rem;
 		display: flex;
-		align-items: center;
 		justify-content: center;
 	}
 
 	.included-image img {
 		max-width: 100%;
-		max-height: 300px;
 		object-fit: contain;
 	}
 
-	.accessories-header {
-		margin-bottom: 2rem;
-	}
-
 	.accessories-title {
-		font-size: 1.5rem;
+		font-size: 1.35rem;
 		font-weight: 700;
-		color: var(--text-primary);
 		text-align: center;
+		margin-bottom: 1.5rem;
 	}
 
 	.accessories-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 1.5rem;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.25rem;
 	}
 
 	.accessory-card {
-		background: var(--glass);
+		border-radius: var(--radius-sm);
 		border: 1px solid var(--glass-border);
-		border-radius: var(--radius);
-		padding: 1.5rem;
-		transition: all 0.3s ease;
-	}
-
-	.accessory-card:hover {
-		transform: translateY(-4px);
-		border-color: rgba(45, 212, 191, 0.3);
+		background: var(--glass);
+		padding: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
 	}
 
 	.accessory-image {
-		width: 100%;
-		height: 120px;
 		background: rgba(255, 255, 255, 0.95);
 		border-radius: var(--radius-sm);
-		margin-bottom: 1rem;
+		padding: 1rem;
 		display: flex;
-		align-items: center;
 		justify-content: center;
-		overflow: hidden;
 	}
 
 	.accessory-image img {
-		max-width: 90%;
-		max-height: 90%;
+		max-width: 100%;
 		object-fit: contain;
 	}
 
 	.accessory-title {
-		font-size: 1rem;
+		font-size: 1.1rem;
 		font-weight: 700;
-		color: var(--text-primary);
-		margin-bottom: 0.5rem;
 	}
 
 	.accessory-description {
-		font-size: 0.85rem;
 		color: var(--text-muted);
 		line-height: 1.6;
+		font-size: 0.95rem;
 	}
 
-	/* ========================
-	   SPECS SECTION
-	   ======================== */
 	.specs-section {
 		background: var(--bg-section);
 	}
 
 	.specs-table {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-		gap: 1.5rem;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1rem;
 	}
 
 	.spec-category {
-		background: var(--glass);
-		border: 1px solid var(--glass-border);
 		border-radius: var(--radius);
-		padding: 1.5rem;
+		border: 1px solid var(--glass-border);
+		background: var(--glass);
+		padding: 1rem;
 	}
 
 	.spec-category-title {
-		font-size: 0.85rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: var(--accent-teal);
-		margin-bottom: 1rem;
-		padding-bottom: 0.75rem;
-		border-bottom: 1px solid var(--glass-border);
+		font-size: 1.1rem;
+		font-weight: 700;
+		margin-bottom: 0.75rem;
 	}
 
 	.spec-row {
 		display: flex;
 		justify-content: space-between;
-		padding: 0.75rem 0;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+		gap: 1rem;
+		padding: 0.6rem 0.4rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 	}
 
 	.spec-row:last-child {
@@ -1898,23 +1787,20 @@
 	}
 
 	.spec-label {
-		font-size: 0.9rem;
 		color: var(--text-muted);
+		font-size: 0.95rem;
 	}
 
 	.spec-value {
-		font-size: 0.9rem;
-		font-weight: 600;
 		color: var(--text-primary);
+		font-weight: 600;
 		text-align: right;
+		font-size: 0.95rem;
 	}
 
-	/* ========================
-	   CTA SECTION
-	   ======================== */
 	.cta-section {
 		position: relative;
-		padding: 8rem 2rem;
+		padding: 4rem 2rem 5rem;
 		text-align: center;
 		overflow: hidden;
 	}
@@ -1928,119 +1814,68 @@
 	.cta-gradient {
 		position: absolute;
 		inset: 0;
-		background: 
-			radial-gradient(ellipse at 30% 50%, rgba(45, 212, 191, 0.15), transparent 50%),
-			radial-gradient(ellipse at 70% 50%, rgba(34, 211, 238, 0.1), transparent 50%);
+		background: radial-gradient(circle at 30% 30%, rgba(34, 211, 238, 0.15), transparent 35%),
+			radial-gradient(circle at 70% 20%, rgba(52, 211, 153, 0.15), transparent 30%),
+			linear-gradient(135deg, rgba(34, 211, 238, 0.08), rgba(52, 211, 153, 0.08));
 	}
 
 	.cta-eyebrow {
 		display: block;
-		font-size: 0.875rem;
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: 0.15em;
 		color: var(--accent-teal);
-		margin-bottom: 1.5rem;
-		position: relative;
-		z-index: 1;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-weight: 600;
+		margin-bottom: 0.75rem;
 	}
 
 	.cta-title {
-		font-size: clamp(2.5rem, 6vw, 4.5rem);
+		font-size: clamp(2rem, 5vw, 3rem);
 		font-weight: 800;
-		letter-spacing: -0.03em;
 		margin-bottom: 1rem;
-		position: relative;
-		z-index: 1;
 	}
 
 	.cta-description {
-		font-size: 1.125rem;
 		color: var(--text-muted);
-		max-width: 600px;
-		margin: 0 auto 2.5rem;
+		max-width: 640px;
+		margin: 0 auto 2rem;
 		line-height: 1.7;
-		position: relative;
-		z-index: 1;
 	}
 
 	.cta-buttons {
 		display: flex;
-		gap: 1rem;
 		justify-content: center;
+		gap: 1rem;
 		flex-wrap: wrap;
-		position: relative;
-		z-index: 1;
 	}
 
-	/* ========================
-	   RESPONSIVE
-	   ======================== */
 	@media (max-width: 1024px) {
-		.hero-container {
-			grid-template-columns: 1fr;
-			text-align: center;
-		}
-
-		.hero-content {
-			align-items: center;
-		}
-
-		.hero-cta-group {
-			justify-content: center;
-		}
-
-		.hero-image {
-			order: -1;
-		}
-
-		.hero-image img {
-			max-height: 350px;
-		}
-
+		.hero-container,
 		.performance-block,
-		.performance-block.reverse {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-			direction: ltr;
-		}
-
 		.battery-grid,
 		.dimensions-grid,
 		.included-grid {
 			grid-template-columns: 1fr;
-			gap: 2rem;
+		}
+
+		.performance-block.reverse {
+			grid-template-columns: 1fr;
 		}
 	}
 
 	@media (max-width: 768px) {
 		.hero {
-			padding: 6rem 1.5rem 3rem;
-		}
-
-		.section {
-			padding: 4rem 1.5rem;
+			padding-top: 6rem;
 		}
 
 		.key-stats {
 			grid-template-columns: 1fr;
 		}
 
-		.highlights-grid,
-		.usecases-grid,
-		.easeofuse-grid,
-		.safety-grid,
-		.accessories-grid,
-		.specs-table {
-			grid-template-columns: 1fr;
-		}
-
-		.battery-specs {
-			grid-template-columns: repeat(2, 1fr);
-		}
-
-		.cta-section {
-			padding: 5rem 1.5rem;
+		.performance-block,
+		.battery-grid,
+		.dimensions-grid,
+		.included-grid {
+			padding: 1.25rem;
 		}
 	}
 </style>

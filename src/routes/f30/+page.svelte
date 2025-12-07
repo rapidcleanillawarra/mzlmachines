@@ -10,7 +10,7 @@
 	// ============================================
 	const images = {
 		hero: {
-			main: '/f30/f30-hero-main.png',
+			main: 'https://coywobndzyvslurwqtdt.supabase.co/storage/v1/object/public/mzl/f30-hero-main.png',
 			environment: '/f30/f30-hero-environment-retail.png'
 		},
 		highlights: {
