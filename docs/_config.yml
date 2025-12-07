@@ -1,0 +1,25 @@
+title: mzlmachines
+description: Project site powered by Jekyll for GitHub Pages.
+url: https://<username>.github.io
+# Leave baseurl empty for a user/organization site. For a project site on
+# GitHub Pages, set this to "/mzlmachines" (or the repository name).
+baseurl: ""
+
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
