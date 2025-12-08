@@ -5,6 +5,9 @@
 
 	gsap.registerPlugin(ScrollTrigger);
 
+// Video embed URL (replace VIDEO_ID with actual ID)
+const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1';
+
 	// ============================================
 	// IMAGE CONFIGURATION - Replace paths as needed
 	// ============================================
@@ -65,6 +68,44 @@
 			handling: '/f60/f60-accessories-handling-storage.png'
 		}
 	};
+
+	const galleryImages = [
+		{ src: images.hero.main, alt: 'MZL F60 walk-behind floor scrubber - front view', caption: 'Front view' },
+		{ src: images.hero.environment, alt: 'MZL F60 scrubber in operation', caption: 'In operation' },
+		{ src: images.performance.scrubbing, alt: 'MZL F60 scrubbing performance', caption: 'Scrubbing power' },
+		{ src: images.performance.water, alt: 'MZL F60 water and chemical control', caption: 'Water & chemical control' },
+		{ src: images.performance.vacuum, alt: 'MZL F60 vacuum and drying performance', caption: 'Vacuum & drying' },
+		{ src: images.performance.beforeAfter, alt: 'MZL F60 cleaning results', caption: 'Before & after results' }
+	];
+
+	let lightboxOpen = false;
+	let currentImageIndex = 0;
+
+	function openLightbox(index: number) {
+		currentImageIndex = index;
+		lightboxOpen = true;
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeLightbox() {
+		lightboxOpen = false;
+		document.body.style.overflow = '';
+	}
+
+	function nextImage() {
+		currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+	}
+
+	function prevImage() {
+		currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+	}
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (!lightboxOpen) return;
+		if (e.key === 'Escape') closeLightbox();
+		if (e.key === 'ArrowRight') nextImage();
+		if (e.key === 'ArrowLeft') prevImage();
+	}
 
 	// Key specifications
 	const keyStats = [
@@ -225,9 +266,12 @@
 			.fromTo('.hero-cta-group', 
 				{ opacity: 0, y: 20 }, 
 				{ opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3')
-			.fromTo('.hero-image', 
-				{ opacity: 0, scale: 0.9 }, 
-				{ opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }, '-=0.6');
+			.fromTo('.hero-image-wrapper', 
+				{ opacity: 0, scale: 0.95, y: 30 }, 
+				{ opacity: 1, scale: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=0.5')
+			.fromTo('.hero-thumbnail', 
+				{ opacity: 0, y: 15 }, 
+				{ opacity: 0.6, y: 0, stagger: 0.05, duration: 0.4, ease: 'power3.out' }, '-=0.4');
 
 		// Section header animations with ScrollTrigger
 		const sections = document.querySelectorAll('.animate-section');
@@ -263,6 +307,39 @@
 				ease: 'power3.out',
 				scrollTrigger: {
 					trigger: '.highlights-grid',
+					start: 'top 85%',
+					once: true
+				}
+			}
+		);
+
+		// Video section animation
+		gsap.fromTo('.video-container',
+			{ opacity: 0, y: 50, scale: 0.95 },
+			{
+				opacity: 1,
+				y: 0,
+				scale: 1,
+				duration: 0.9,
+				ease: 'power3.out',
+				scrollTrigger: {
+					trigger: '.video-wrapper',
+					start: 'top 85%',
+					once: true
+				}
+			}
+		);
+
+		gsap.fromTo('.video-feature',
+			{ opacity: 0, y: 20 },
+			{
+				opacity: 1,
+				y: 0,
+				stagger: 0.1,
+				duration: 0.6,
+				ease: 'power3.out',
+				scrollTrigger: {
+					trigger: '.video-wrapper',
 					start: 'top 85%',
 					once: true
 				}
@@ -438,6 +515,8 @@
 	/>
 </svelte:head>
 
+<svelte:window on:keydown={handleKeydown} />
+
 <!-- Section 1: Hero -->
 <section class="hero">
 	<div class="hero-bg">
@@ -481,8 +560,41 @@
 			</div>
 		</div>
 
-		<div class="hero-image">
-			<img src={images.hero.main} alt="MZL F60 Floor Scrubber" />
+		<div class="hero-gallery">
+			<div class="hero-image-wrapper">
+				<img 
+					src={galleryImages[currentImageIndex].src} 
+					alt={galleryImages[currentImageIndex].alt} 
+					class="hero-image"
+				/>
+				<button 
+					class="hero-fullscreen-btn" 
+					on:click={() => openLightbox(currentImageIndex)}
+					aria-label="View fullscreen"
+				>
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M8 3H5a2 2 0 0 0-2 2v3"/>
+						<path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+						<path d="M3 16v3a2 2 0 0 0 2 2h3"/>
+						<path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
+					</svg>
+					<span>View Gallery</span>
+				</button>
+				<div class="hero-image-caption">{galleryImages[currentImageIndex].caption}</div>
+			</div>
+			
+			<div class="hero-thumbnails">
+				{#each galleryImages as image, i}
+					<button 
+						class="hero-thumbnail" 
+						class:active={i === currentImageIndex}
+						on:click={() => currentImageIndex = i}
+						aria-label="View {image.caption}"
+					>
+						<img src={image.src} alt={image.alt} />
+					</button>
+				{/each}
+			</div>
 		</div>
 	</div>
 
@@ -502,17 +614,67 @@
 
 		<div class="highlights-grid">
 			{#each highlights as highlight, i}
-				<div class="highlight-card" style="animation-delay: {i * 0.05}s">
-					<div class="highlight-image">
-						<img src={highlight.image} alt={highlight.title} />
-					</div>
+				<div class="highlight-card" style="animation-delay: {i * 0.05}s; background-image: url({highlight.image});">
+					<div class="highlight-overlay"></div>
 					<div class="highlight-content">
-						<h3 class="highlight-title">{highlight.title}</h3>
 						<span class="highlight-subtitle">{highlight.subtitle}</span>
+						<h3 class="highlight-title">{highlight.title}</h3>
 						<p class="highlight-description">{highlight.description}</p>
 					</div>
 				</div>
 			{/each}
+		</div>
+	</div>
+</section>
+
+<!-- Section 2.5: Video Section -->
+<section class="section video-section animate-section">
+	<div class="video-bg">
+		<div class="gradient-orb orb-video"></div>
+	</div>
+	
+	<div class="section-container">
+		<div class="section-header animate-item">
+			<span class="section-eyebrow">See It In Action</span>
+			<h2 class="section-title">Watch the MZL F60 at work</h2>
+			<p class="section-subtitle">
+				See how the MZL F60 traction-assisted scrubber delivers one-pass cleaning across retail and industrial floors.
+			</p>
+		</div>
+
+		<div class="video-wrapper animate-item">
+			<div class="video-container">
+				<iframe 
+					src={videoEmbedUrl}
+					title="MZL F60 Floor Scrubber Demo Video"
+					frameborder="0" 
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+					allowfullscreen
+				></iframe>
+			</div>
+			<div class="video-features">
+				<div class="video-feature">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+						<polyline points="22 4 12 14.01 9 11.01"/>
+					</svg>
+					<span>One-pass cleaning demo</span>
+				</div>
+				<div class="video-feature">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+						<polyline points="22 4 12 14.01 9 11.01"/>
+					</svg>
+					<span>Traction drive walkthrough</span>
+				</div>
+				<div class="video-feature">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+						<polyline points="22 4 12 14.01 9 11.01"/>
+					</svg>
+					<span>Real-world throughput results</span>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -935,6 +1097,66 @@
 	</div>
 </section>
 
+{#if lightboxOpen}
+	<div 
+		class="lightbox" 
+		on:click={closeLightbox} 
+		on:keydown={(e) => e.key === 'Enter' && closeLightbox()}
+		role="dialog" 
+		aria-modal="true" 
+		aria-label="Image viewer"
+		tabindex="-1"
+	>
+		<div class="lightbox-backdrop"></div>
+		
+		<button class="lightbox-close" on:click={closeLightbox} aria-label="Close viewer">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M18 6 6 18"/>
+				<path d="m6 6 12 12"/>
+			</svg>
+		</button>
+
+		<div class="lightbox-content" on:click|stopPropagation role="presentation">
+			<button class="lightbox-nav lightbox-prev" on:click={prevImage} aria-label="Previous image">
+				<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="m15 18-6-6 6-6"/>
+				</svg>
+			</button>
+
+			<div class="lightbox-image-container">
+				<img 
+					src={galleryImages[currentImageIndex].src} 
+					alt={galleryImages[currentImageIndex].alt}
+					class="lightbox-image"
+				/>
+				<div class="lightbox-caption">
+					<span class="lightbox-caption-text">{galleryImages[currentImageIndex].caption}</span>
+					<span class="lightbox-counter">{currentImageIndex + 1} / {galleryImages.length}</span>
+				</div>
+			</div>
+
+			<button class="lightbox-nav lightbox-next" on:click={nextImage} aria-label="Next image">
+				<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="m9 18 6-6-6-6"/>
+				</svg>
+			</button>
+		</div>
+
+		<div class="lightbox-thumbnails">
+			{#each galleryImages as image, i}
+				<button 
+					class="lightbox-thumbnail" 
+					class:active={i === currentImageIndex}
+					on:click|stopPropagation={() => currentImageIndex = i}
+					aria-label="View image {i + 1}"
+				>
+					<img src={image.src} alt={image.alt} />
+				</button>
+			{/each}
+		</div>
+	</div>
+{/if}
+
 <style>
 	/* ========================
 	   HERO SECTION
@@ -1076,17 +1298,112 @@
 		margin-top: 0.5rem;
 	}
 
-	.hero-image {
+	.hero-gallery {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.hero-image-wrapper {
+		position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: 2rem;
+		min-height: 400px;
 	}
 
-	.hero-image img {
+	.hero-image {
 		max-width: 100%;
-		max-height: 550px;
+		max-height: 450px;
 		object-fit: contain;
-		filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
+		filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+		transition: opacity 0.3s ease;
+	}
+
+	.hero-fullscreen-btn {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.625rem 1rem;
+		background: rgba(5, 5, 5, 0.8);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 999px;
+		color: var(--text-primary);
+		font-size: 0.8rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		z-index: 5;
+	}
+
+	.hero-fullscreen-btn:hover {
+		background: rgba(45, 212, 191, 0.9);
+		color: #050505;
+		border-color: var(--accent-teal);
+	}
+
+	.hero-image-caption {
+		position: absolute;
+		bottom: 1rem;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 0.5rem 1rem;
+		background: rgba(5, 5, 5, 0.8);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 999px;
+		color: var(--text-secondary);
+		font-size: 0.8rem;
+		font-weight: 500;
+		white-space: nowrap;
+	}
+
+	.hero-thumbnails {
+		display: flex;
+		gap: 0.625rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		padding: 0.75rem;
+		background: var(--glass);
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius);
+	}
+
+	.hero-thumbnail {
+		width: 72px;
+		height: 54px;
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+		cursor: pointer;
+		border: 2px solid transparent;
+		background: var(--glass);
+		padding: 0.25rem;
+		transition: all 0.3s ease;
+		opacity: 0.6;
+	}
+
+	.hero-thumbnail:hover {
+		opacity: 1;
+		border-color: rgba(255, 255, 255, 0.3);
+	}
+
+	.hero-thumbnail.active {
+		border-color: var(--accent-teal);
+		opacity: 1;
+		box-shadow: 0 0 15px rgba(45, 212, 191, 0.3);
+	}
+
+	.hero-thumbnail img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 
 	.scroll-indicator {
@@ -1239,64 +1556,155 @@
 
 	.highlights-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 		gap: 1.5rem;
 	}
 
 	.highlight-card {
-		background: var(--glass);
-		border: 1px solid var(--glass-border);
+		position: relative;
 		border-radius: var(--radius);
-		padding: 1.5rem;
-		transition: all 0.3s ease;
+		overflow: hidden;
+		min-height: 320px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		border: 1px solid var(--glass-border);
+		transition: all 0.4s ease;
 	}
 
 	.highlight-card:hover {
-		transform: translateY(-4px);
-		border-color: rgba(45, 212, 191, 0.3);
-		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+		transform: translateY(-6px);
+		border-color: rgba(45, 212, 191, 0.4);
+		box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 	}
 
-	.highlight-image {
-		width: 100%;
-		height: 160px;
-		background: rgba(255, 255, 255, 0.95);
-		border-radius: var(--radius-sm);
-		margin-bottom: 1.25rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
+	.highlight-card:hover .highlight-overlay {
+		background: linear-gradient(
+			to top,
+			rgba(5, 5, 5, 0.98) 0%,
+			rgba(5, 5, 5, 0.85) 40%,
+			rgba(5, 5, 5, 0.4) 70%,
+			transparent 100%
+		);
 	}
 
-	.highlight-image img {
-		max-width: 90%;
-		max-height: 90%;
-		object-fit: contain;
+	.highlight-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to top,
+			rgba(5, 5, 5, 0.95) 0%,
+			rgba(5, 5, 5, 0.75) 35%,
+			rgba(5, 5, 5, 0.3) 65%,
+			transparent 100%
+		);
+		transition: background 0.4s ease;
 	}
 
 	.highlight-content {
+		position: relative;
+		z-index: 1;
+		padding: 1.75rem;
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
 	}
 
 	.highlight-title {
-		font-size: 1.25rem;
+		font-size: 1.35rem;
 		font-weight: 700;
 		color: var(--text-primary);
+		line-height: 1.3;
 	}
 
 	.highlight-subtitle {
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
 		color: var(--accent-teal);
+		order: -1;
 	}
 
 	.highlight-description {
 		font-size: 0.9rem;
-		color: var(--text-muted);
+		color: var(--text-secondary);
 		line-height: 1.6;
+		margin-top: 0.25rem;
+	}
+
+	/* ========================
+	   VIDEO SECTION
+	   ======================== */
+	.video-section {
+		position: relative;
+	}
+
+	.video-bg {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+	}
+
+	.orb-video {
+		width: 700px;
+		height: 700px;
+		background: radial-gradient(circle, rgba(34, 211, 238, 0.1), transparent 60%);
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.video-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.video-container {
+		position: relative;
+		width: 100%;
+		padding-bottom: 56.25%; /* 16:9 aspect ratio */
+		background: var(--glass);
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius);
+		overflow: hidden;
+		box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+	}
+
+	.video-container iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.video-features {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
+
+	.video-feature {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem 1.25rem;
+		background: var(--glass);
+		border: 1px solid var(--glass-border);
+		border-radius: 999px;
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+	}
+
+	.video-feature svg {
+		color: var(--accent-teal);
+		flex-shrink: 0;
 	}
 
 	/* ========================
@@ -1974,6 +2382,171 @@
 	}
 
 	/* ========================
+	   LIGHTBOX
+	   ======================== */
+	.lightbox {
+		position: fixed;
+		inset: 0;
+		z-index: 9999;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+	}
+
+	.lightbox-backdrop {
+		position: absolute;
+		inset: 0;
+		background: rgba(5, 5, 5, 0.95);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+	}
+
+	.lightbox-close {
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		z-index: 10;
+		width: 48px;
+		height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--glass);
+		border: 1px solid var(--glass-border);
+		border-radius: 50%;
+		color: var(--text-primary);
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.lightbox-close:hover {
+		background: rgba(255, 255, 255, 0.15);
+		border-color: rgba(45, 212, 191, 0.4);
+		color: var(--accent-teal);
+	}
+
+	.lightbox-content {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		max-width: 100%;
+		max-height: calc(100vh - 180px);
+		width: 100%;
+	}
+
+	.lightbox-nav {
+		flex-shrink: 0;
+		width: 56px;
+		height: 56px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--glass);
+		border: 1px solid var(--glass-border);
+		border-radius: 50%;
+		color: var(--text-primary);
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.lightbox-nav:hover {
+		background: rgba(255, 255, 255, 0.15);
+		border-color: rgba(45, 212, 191, 0.4);
+		color: var(--accent-teal);
+		transform: scale(1.05);
+	}
+
+	.lightbox-image-container {
+		flex: 1;
+		max-width: 1000px;
+		max-height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.lightbox-image {
+		max-width: 100%;
+		max-height: calc(100vh - 260px);
+		object-fit: contain;
+		filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
+	}
+
+	.lightbox-caption {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		max-width: 500px;
+		padding: 0.75rem 1.5rem;
+		background: var(--glass);
+		border: 1px solid var(--glass-border);
+		border-radius: 999px;
+	}
+
+	.lightbox-caption-text {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--text-primary);
+	}
+
+	.lightbox-counter {
+		font-size: 0.85rem;
+		color: var(--accent-teal);
+		font-weight: 500;
+	}
+
+	.lightbox-thumbnails {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+		padding: 0.75rem;
+		background: var(--glass);
+		border: 1px solid var(--glass-border);
+		border-radius: var(--radius);
+		overflow-x: auto;
+		max-width: 100%;
+	}
+
+	.lightbox-thumbnail {
+		flex-shrink: 0;
+		width: 72px;
+		height: 54px;
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+		cursor: pointer;
+		border: 2px solid transparent;
+		background: var(--glass);
+		padding: 0.25rem;
+		transition: all 0.3s ease;
+		opacity: 0.6;
+	}
+
+	.lightbox-thumbnail:hover {
+		opacity: 1;
+	}
+
+	.lightbox-thumbnail.active {
+		border-color: var(--accent-teal);
+		opacity: 1;
+		box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+	}
+
+	.lightbox-thumbnail img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	/* ========================
 	   RESPONSIVE
 	   ======================== */
 	@media (max-width: 1024px) {
@@ -1990,12 +2563,25 @@
 			justify-content: center;
 		}
 
-		.hero-image {
+		.hero-gallery {
 			order: -1;
 		}
 
-		.hero-image img {
-			max-height: 350px;
+		.hero-image-wrapper {
+			min-height: 300px;
+			padding: 1.5rem;
+		}
+
+		.hero-image {
+			max-height: 280px;
+		}
+
+		.hero-fullscreen-btn span {
+			display: none;
+		}
+
+		.hero-fullscreen-btn {
+			padding: 0.625rem;
 		}
 
 		.performance-block,
@@ -2037,6 +2623,57 @@
 
 		.battery-specs {
 			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.video-features {
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		.video-feature {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.hero-thumbnails {
+			gap: 0.5rem;
+			padding: 0.5rem;
+		}
+
+		.hero-thumbnail {
+			width: 56px;
+			height: 42px;
+		}
+
+		.lightbox-content {
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.lightbox-nav {
+			display: none;
+		}
+
+		.lightbox-image {
+			max-height: calc(100vh - 300px);
+			padding: 1rem;
+		}
+
+		.lightbox-caption {
+			flex-direction: column;
+			gap: 0.25rem;
+			text-align: center;
+		}
+
+		.lightbox-thumbnails {
+			padding: 0.5rem;
+			gap: 0.5rem;
+		}
+
+		.lightbox-thumbnail {
+			width: 56px;
+			height: 42px;
 		}
 
 		.cta-section {
