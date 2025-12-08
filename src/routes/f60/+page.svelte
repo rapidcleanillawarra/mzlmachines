@@ -1158,6 +1158,11 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 {/if}
 
 <style>
+	:global(:root) {
+		--accent-teal: #a78bfa;
+		--accent-mint: #c4b5fd;
+	}
+
 	/* ========================
 	   HERO SECTION
 	   ======================== */
@@ -1186,7 +1191,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	.orb-1 {
 		width: 600px;
 		height: 600px;
-		background: radial-gradient(circle, rgba(34, 211, 238, 0.3), transparent 70%);
+		background: radial-gradient(circle, rgba(167, 139, 250, 0.3), transparent 70%);
 		top: -200px;
 		right: -200px;
 	}
@@ -1194,7 +1199,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	.orb-2 {
 		width: 400px;
 		height: 400px;
-		background: radial-gradient(circle, rgba(45, 212, 191, 0.25), transparent 70%);
+		background: radial-gradient(circle, rgba(196, 181, 253, 0.25), transparent 70%);
 		bottom: 10%;
 		left: -100px;
 	}
@@ -1343,7 +1348,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	}
 
 	.hero-fullscreen-btn:hover {
-		background: rgba(45, 212, 191, 0.9);
+		background: rgba(196, 181, 253, 0.9);
 		color: #050505;
 		border-color: var(--accent-teal);
 	}
@@ -1397,7 +1402,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	.hero-thumbnail.active {
 		border-color: var(--accent-teal);
 		opacity: 1;
-		box-shadow: 0 0 15px rgba(45, 212, 191, 0.3);
+		box-shadow: 0 0 15px rgba(196, 181, 253, 0.3);
 	}
 
 	.hero-thumbnail img {
@@ -1455,7 +1460,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	.btn-primary:hover {
 		background: var(--accent-mint);
 		transform: translateY(-2px);
-		box-shadow: 0 10px 40px rgba(45, 212, 191, 0.3);
+		box-shadow: 0 10px 40px rgba(196, 181, 253, 0.3);
 	}
 
 	.btn-secondary {
@@ -1577,7 +1582,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 
 	.highlight-card:hover {
 		transform: translateY(-6px);
-		border-color: rgba(45, 212, 191, 0.4);
+		border-color: rgba(196, 181, 253, 0.4);
 		box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 	}
 
@@ -1652,7 +1657,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	.orb-video {
 		width: 700px;
 		height: 700px;
-		background: radial-gradient(circle, rgba(34, 211, 238, 0.1), transparent 60%);
+		background: radial-gradient(circle, rgba(167, 139, 250, 0.1), transparent 60%);
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -1723,7 +1728,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	.orb-usecase {
 		width: 800px;
 		height: 800px;
-		background: radial-gradient(circle, rgba(45, 212, 191, 0.08), transparent 60%);
+		background: radial-gradient(circle, rgba(196, 181, 253, 0.08), transparent 60%);
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -1745,7 +1750,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 
 	.usecase-card:hover {
 		transform: translateY(-4px);
-		border-color: rgba(45, 212, 191, 0.3);
+		border-color: rgba(196, 181, 253, 0.3);
 	}
 
 	.usecase-image {
@@ -1871,7 +1876,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	.orb-battery {
 		width: 600px;
 		height: 600px;
-		background: radial-gradient(circle, rgba(34, 211, 238, 0.1), transparent 60%);
+		background: radial-gradient(circle, rgba(167, 139, 250, 0.1), transparent 60%);
 		top: 0;
 		right: -200px;
 	}
@@ -1959,7 +1964,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 
 	.easeofuse-card:hover {
 		transform: translateY(-4px);
-		border-color: rgba(45, 212, 191, 0.3);
+		border-color: rgba(196, 181, 253, 0.3);
 	}
 
 	.easeofuse-icon {
@@ -1969,7 +1974,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: rgba(45, 212, 191, 0.1);
+		background: rgba(196, 181, 253, 0.1);
 		border-radius: 50%;
 		color: var(--accent-teal);
 	}
@@ -2018,7 +2023,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	.orb-safety {
 		width: 700px;
 		height: 700px;
-		background: radial-gradient(circle, rgba(45, 212, 191, 0.08), transparent 60%);
+		background: radial-gradient(circle, rgba(196, 181, 253, 0.08), transparent 60%);
 		bottom: -200px;
 		left: -200px;
 	}
@@ -2039,7 +2044,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 
 	.safety-card:hover {
 		transform: translateY(-4px);
-		border-color: rgba(45, 212, 191, 0.3);
+		border-color: rgba(196, 181, 253, 0.3);
 	}
 
 	.safety-icon {
@@ -2143,7 +2148,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	.orb-included {
 		width: 600px;
 		height: 600px;
-		background: radial-gradient(circle, rgba(34, 211, 238, 0.08), transparent 60%);
+		background: radial-gradient(circle, rgba(167, 139, 250, 0.08), transparent 60%);
 		top: 0;
 		left: -200px;
 	}
@@ -2229,7 +2234,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 
 	.accessory-card:hover {
 		transform: translateY(-4px);
-		border-color: rgba(45, 212, 191, 0.3);
+		border-color: rgba(196, 181, 253, 0.3);
 	}
 
 	.accessory-image {
@@ -2337,8 +2342,8 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 		position: absolute;
 		inset: 0;
 		background: 
-			radial-gradient(ellipse at 30% 50%, rgba(45, 212, 191, 0.15), transparent 50%),
-			radial-gradient(ellipse at 70% 50%, rgba(34, 211, 238, 0.1), transparent 50%);
+			radial-gradient(ellipse at 30% 50%, rgba(196, 181, 253, 0.15), transparent 50%),
+			radial-gradient(ellipse at 70% 50%, rgba(167, 139, 250, 0.1), transparent 50%);
 	}
 
 	.cta-eyebrow {
@@ -2423,7 +2428,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 
 	.lightbox-close:hover {
 		background: rgba(255, 255, 255, 0.15);
-		border-color: rgba(45, 212, 191, 0.4);
+		border-color: rgba(196, 181, 253, 0.4);
 		color: var(--accent-teal);
 	}
 
@@ -2456,7 +2461,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 
 	.lightbox-nav:hover {
 		background: rgba(255, 255, 255, 0.15);
-		border-color: rgba(45, 212, 191, 0.4);
+		border-color: rgba(196, 181, 253, 0.4);
 		color: var(--accent-teal);
 		transform: scale(1.05);
 	}
@@ -2537,7 +2542,7 @@ const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbrandi
 	.lightbox-thumbnail.active {
 		border-color: var(--accent-teal);
 		opacity: 1;
-		box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+		box-shadow: 0 0 20px rgba(196, 181, 253, 0.3);
 	}
 
 	.lightbox-thumbnail img {
