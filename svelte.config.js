@@ -7,7 +7,8 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			fallback: 'index.html'
+			// GitHub Pages serves /404.html for unknown routes; use it as SPA fallback
+			fallback: '404.html'
 		}),
 
 		paths: {
