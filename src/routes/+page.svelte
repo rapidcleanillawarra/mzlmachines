@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -302,7 +303,7 @@
 				</div>
 
 				<div class="product-actions">
-					<a href="/support" class="btn-primary">Get a Quote</a>
+					<a href={`${base}/support`} class="btn-primary">Get a Quote</a>
 					<a href="#compare" class="btn-ghost">Compare</a>
 				</div>
 			</div>
@@ -357,7 +358,7 @@
 				<div class="comparison-cell label-cell"></div>
 				{#each products as product}
 					<div class="comparison-cell">
-						<a href="/support" class="btn-small" style="--accent: {product.color}">Get Quote</a>
+						<a href={`${base}/support`} class="btn-small" style="--accent: {product.color}">Get Quote</a>
 					</div>
 				{/each}
 			</div>
@@ -378,8 +379,8 @@
 		Get personalized recommendations and competitive pricing.
 	</p>
 	<div class="cta-buttons">
-		<a href="/support" class="btn-primary btn-large">Request a Quote</a>
-		<a href="/support" class="btn-secondary btn-large">Contact Sales</a>
+		<a href={`${base}/support`} class="btn-primary btn-large">Request a Quote</a>
+		<a href={`${base}/support`} class="btn-secondary btn-large">Contact Sales</a>
 	</div>
 </section>
 

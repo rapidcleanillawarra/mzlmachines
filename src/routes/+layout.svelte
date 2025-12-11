@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import favicon from '$lib/assets/favicon.svg';
 
 	const productLinks = [
-		{ href: '/f30', label: 'F30' },
-		{ href: '/#m5', label: 'M5' },
-		{ href: '/#f60', label: 'F60' },
-		{ href: '/#m80', label: 'M80' },
-		{ href: '/#compare', label: 'Compare' },
-		{ href: '/support', label: 'Support' }
+		{ href: `${base}/f30`, section: 'f30', label: 'F30' },
+		{ href: `${base}/#m5`, section: 'm5', label: 'M5' },
+		{ href: `${base}/#f60`, section: 'f60', label: 'F60' },
+		{ href: `${base}/#m80`, section: 'm80', label: 'M80' },
+		{ href: `${base}/#compare`, section: 'compare', label: 'Compare' },
+		{ href: `${base}/support`, section: 'support', label: 'Support' }
 	];
 
 	let { children } = $props();
@@ -53,7 +54,7 @@
 
 <div class="page">
 	<header class="topbar" class:scrolled>
-		<a class="brand" href="/">
+		<a class="brand" href={`${base}/`}>
 			<span class="brand-icon"></span>
 			MZL
 		</a>
@@ -62,7 +63,7 @@
 			{#each productLinks as link}
 				<a
 					href={link.href}
-					class:active={activeSection === link.href.replace('/#', '')}
+					class:active={activeSection === link.section}
 					data-sveltekit-preload-data
 				>
 					{link.label}
@@ -71,7 +72,7 @@
 		</nav>
 
 		<div class="actions">
-			<a class="cta-nav" href="/support">Get a Quote</a>
+			<a class="cta-nav" href={`${base}/support`}>Get a Quote</a>
 		</div>
 	</header>
 
@@ -92,22 +93,22 @@
 			<div class="footer-grid">
 				<div class="footer-col">
 					<h4>Products</h4>
-					<a href="/f30">F30 Series</a>
-					<a href="/#m5">M5 Series</a>
-					<a href="/#f60">F60 Series</a>
-					<a href="/#m80">M80 Series</a>
+					<a href={`${base}/f30`}>F30 Series</a>
+					<a href={`${base}/#m5`}>M5 Series</a>
+					<a href={`${base}/#f60`}>F60 Series</a>
+					<a href={`${base}/#m80`}>M80 Series</a>
 				</div>
 				<div class="footer-col">
 					<h4>Company</h4>
-					<a href="/support">Support</a>
-					<a href="/support">Contact</a>
-					<a href="/#compare">Compare Models</a>
+					<a href={`${base}/support`}>Support</a>
+					<a href={`${base}/support`}>Contact</a>
+					<a href={`${base}/#compare`}>Compare Models</a>
 				</div>
 				<div class="footer-col">
 					<h4>Resources</h4>
-					<a href="/support">Documentation</a>
-					<a href="/support">Warranty</a>
-					<a href="/support">Service Centers</a>
+					<a href={`${base}/support`}>Documentation</a>
+					<a href={`${base}/support`}>Warranty</a>
+					<a href={`${base}/support`}>Service Centers</a>
 				</div>
 			</div>
 			

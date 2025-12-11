@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,6 +13,19 @@
 	// Video embed URL - Replace VIDEO_ID with your actual YouTube video ID
 	// Example: 'https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1'
 	const videoEmbedUrl = 'https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1';
+
+	// Ensure asset paths are absolute (hosted remotely) to avoid missing files in static build
+	const assetHost = 'https://coywobndzyvslurwqtdt.supabase.co/storage/v1/object/public/mzl';
+	const prefixAssets = (value: unknown): unknown => {
+		if (typeof value === 'string' && value.startsWith('/f30/')) {
+			return `${assetHost}${value}`;
+		}
+		if (Array.isArray(value)) return value.map(prefixAssets);
+		if (value && typeof value === 'object') {
+			return Object.fromEntries(Object.entries(value).map(([key, val]) => [key, prefixAssets(val)]));
+		}
+		return value;
+	};
 
 	// ============================================
 	// PRODUCT GALLERY - Add your product photos here
@@ -56,7 +70,7 @@
 		if (e.key === 'ArrowLeft') prevImage();
 	}
 
-	const images = {
+	const rawImages = {
 		hero: {
 			main: 'https://coywobndzyvslurwqtdt.supabase.co/storage/v1/object/public/mzl/f30-hero-main.png',
 			environment: '/f30/f30-hero-environment-retail.png'
@@ -131,6 +145,8 @@
 			handling: '/f30/f30-accessories-handling-storage.png'
 		}
 	};
+
+	const images = prefixAssets(rawImages) as typeof rawImages;
 
 	// Key specifications
 	const keyStats = [
@@ -624,9 +640,9 @@
 			</div>
 
 			<div class="hero-cta-group">
-				<a href="/support" class="btn-primary">Get a Quote</a>
-				<a href="/support" class="btn-secondary">Book a Demo</a>
-				<a href="/support" class="btn-ghost">
+				<a href={`${base}/support`} class="btn-primary">Get a Quote</a>
+				<a href={`${base}/support`} class="btn-secondary">Book a Demo</a>
+				<a href={`${base}/support`} class="btn-ghost">
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
 						<polyline points="7,10 12,15 17,10"/>
@@ -1220,8 +1236,8 @@
 		Get personalized recommendations and competitive pricing.
 	</p>
 	<div class="cta-buttons">
-		<a href="/support" class="btn-primary btn-large">Request a Quote</a>
-		<a href="/support" class="btn-secondary btn-large">Book a Demo</a>
+		<a href={`${base}/support`} class="btn-primary btn-large">Request a Quote</a>
+		<a href={`${base}/support`} class="btn-secondary btn-large">Book a Demo</a>
 	</div>
 </section>
 
